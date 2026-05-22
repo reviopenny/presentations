@@ -240,7 +240,7 @@
       <div style="display:flex; flex-direction:column; flex:1;">
         <div style="font-family:'Arial Black',Arial; font-size:12px; color:var(--teal); font-weight:900; text-transform:uppercase; margin-bottom:4px;">Highlights</div>
         <div style="height:2px; background:var(--teal); margin-bottom:6px;"></div>
-        <div style="font-size:13px; color:var(--light-blue); line-height:1.9; flex:1;">
+        <div style="font-size:17px; color:var(--light-blue); line-height:2.2; flex:1;">
           ▸ Revenue $3.2M — $186K below budget; PSA - largest gap, Billing (Spectrum credit), and Payments all short<br>
           ▸ EBITDA $437K (13.7%) — $112K below budget; YTD $2.6M (20.1%), +$326K ahead of plan<br>
           ▸ Spend $74K favorable — people savings offset Hosting, R&amp;D contractors, and tradeshow higher spend<br>
@@ -291,8 +291,8 @@
         <div style="font-size:12px; color:var(--light-blue); line-height:1.6;">
           Miss of $186K vs budget:<br>
           ▸ PSA Legacy -$46K — churn, credits &amp; seat reductions<br>
-          ▸ PSA Web -$92K — new sales behind &amp; cancellations<br>
-          ▸ Billing -$32K — Spectrum credit already reflected<br>
+          ▸ PSA Web -$92K — new sales behind &amp; cancellations but moving in the right direction; May up $18K<br>
+          ▸ Billing -$32K — Spectrum VOIP credit<br>
           ▸ Payments -$36K: — $40K prior month adj + $10K past-due residuals, volume decline $12K offset by growth
         </div>
       </div>
@@ -300,7 +300,7 @@
         <div class="outlook-title" style="font-size:11px;">COST WATCH ITEMS</div>
         <div class="outlook-divider"></div>
         <div class="outlook-content" style="font-size:11.5px; line-height:1.6;">
-          ▸ <strong style="color:var(--red)">Hosting:</strong> Vervint over budgeted amount — to be revised in re-forecasting model.<br><br>
+          ▸ <strong style="color:var(--red)">Hosting:</strong> Vervint over budgeted amount — to be revised in re-forecasting model / audit hosting sites and usage.<br><br>
           ▸ <strong style="color:var(--red)">R&amp;D Contractors:</strong> Softserve $42K but will continue at a lower rate.<br><br>
           ▸ <strong style="color:var(--red)">Marketing tradeshows:</strong> +$58K over April budget: $87k Kaseya, $37k Channel Partners, $21k MSP Summit, $15k Skyswitch.
         </div>
@@ -309,7 +309,7 @@
         <div class="outlook-title" style="font-size:11px;">EBITDA</div>
         <div class="outlook-divider"></div>
         <div class="outlook-content" style="font-size:11.5px; line-height:1.6;">
-          ▸ <strong>EBITDA:</strong> $437K (13.7%) in April, -$112K vs. budget. YTD $2.6M (20.1%), +$326K ahead of plan.<br><br>
+          ▸ YTD EBITDA is outpacing budget due to people cost savings.<br><br>
           ▸ Revenue miss primary driver — spend $74K favorable. People savings ($340K under) absorbing overruns.<br><br>
           ▸ Watch: Hosting, Softserve, and tradeshows.<br><br>
          
@@ -500,12 +500,11 @@
   </div>
   <div class="divider"></div>
   <div class="slide-content" style="flex-direction:row; gap:14px; padding-bottom:36px;">
-    <!-- LEFT: Charts -->
     <div style="flex:1.5; display:flex; flex-direction:column; gap:6px;">
       <div style="flex:1.1; display:flex; flex-direction:column;">
-        <div class="section-label" style="margin-top:0; margin-bottom:2px; font-size:10px;">CAC Ratio by Product — Trailing 10 Months</div>
+        <div class="section-label" style="margin-top:0; margin-bottom:2px; font-size:10px;">CAC Ratio by Product</div>
         <svg id="cac-ratio-svg" style="flex:1; width:100%;" viewBox="0 0 500 145" preserveAspectRatio="none"></svg>
-        <div style="display:flex; gap:12px; font-size:9px; margin-top:3px; flex-wrap:wrap;">
+        <div style="display:flex; gap:12px; font-size:9px; margin-top:3px; justify-content:center;">
           <span style="color:#2399B5;">&#9644; Total</span>
           <span style="color:#6EBE4F;">&#9644; Billing</span>
           <span style="color:#FFA500;">&#9644; PSA Total</span>
@@ -517,9 +516,8 @@
         <div class="section-label green" style="margin-top:0; margin-bottom:2px; font-size:10px;">LTV / CAC Trend (Total)</div>
         <svg id="ltv-svg" style="flex:1; width:100%;" viewBox="0 0 500 100" preserveAspectRatio="none"></svg>
       </div>
-      <div class="footnote">Source: 2. 3-Statement '26 rows 259–274 &nbsp;|&nbsp; Industry median CAC ~1x; Rev.io 0.36x = top quartile</div>
+      <div class="footnote">Source: 2. 3-Statement '26 rows 229–278 &nbsp;|&nbsp; Industry median CAC ~1x; Rev.io 0.36x = top quartile</div>
     </div>
-    <!-- RIGHT: Table + KPIs + Commentary -->
     <div style="flex:1; display:flex; flex-direction:column; gap:8px;">
       <div>
         <div class="section-label" style="margin-top:0; margin-bottom:4px; font-size:10px;">April 2026 — By Product</div>
@@ -549,8 +547,8 @@
       <div style="flex:1; font-size:11px; color:var(--white); line-height:1.65;">
         ▸ <strong>Overall efficiency strong</strong> — 0.36x well below ~1x median.<br><br>
         ▸ <strong>Billing drives the story</strong> — payback ~25 months, strong unit economics.<br><br>
-        ▸ <strong>PSA Web CAC improving</strong> — 0.05x (Jul '25) → 0.25x (Apr '26) as cohorts mature; payback still long at 47 months but trending down from 247 months.<br><br>
-        ▸ <strong>PSA Total CAC (0.27x) low — misleading</strong> — minimal spend on declining product. 44-month payback compressing as ARR erodes.<br><br>
+        ▸ <strong>PSA Web improving rapidly</strong> — payback compressed from 247 months (Jul '25) to 47 months (Apr '26) as the cohort matures; CAC ratio grew from 0.05x to 0.25x reflecting increasing investment behind the product. Still long but trending right.<br><br>
+        ▸ <strong>PSA Total CAC (0.27x) is misleading</strong> — minimal spend on declining Legacy base. 44-month payback compressing as ARR erodes.<br><br>
         ▸ <strong>LTV/CAC declined 3.54x → 2.78x</strong> since Nov '25 — PSA-driven. Watch for continued compression.
       </div>
     </div>
@@ -561,8 +559,72 @@
   </div>
 </div>
 
-<!-- SLIDE 8: PAYMENTS TRACKER -->
+<!-- SLIDE 8: CAC SUPPLEMENTAL -->
 <div class="slide" id="slide-8">
+  <div class="slide-header">
+    <h1>CAC Detail — TTM Bookings &amp; S&M Allocation <span class="appendix-badge">SUPPLEMENTAL</span></h1>
+    <div class="subtitle">April 2026 | Trailing 10 Months (Jul 2025 – Apr 2026) | Source: 2. 3-Statement '26 rows 229–278</div>
+  </div>
+  <div class="divider"></div>
+  <div class="slide-content" style="gap:10px; padding-bottom:36px;">
+    <div>
+      <div class="section-label" style="margin-top:0; margin-bottom:3px; font-size:10px;">TTM ARR Bookings by Product ($)</div>
+      <table class="data-table" style="font-size:10px;">
+        <thead><tr><th class="left">Product</th><th>Jul'25</th><th>Aug'25</th><th>Sep'25</th><th>Oct'25</th><th>Nov'25</th><th>Dec'25</th><th>Jan'26</th><th>Feb'26</th><th>Mar'26</th><th>Apr'26</th></tr></thead>
+        <tbody>
+          <tr><td class="left">Billing</td><td class="">$1,253K</td><td class="">$1,161K</td><td class="">$1,199K</td><td class="">$1,206K</td><td class="">$1,258K</td><td class="">$1,042K</td><td class="">$1,099K</td><td class="">$1,084K</td><td class="">$1,089K</td><td class="">$1,092K</td></tr>
+          <tr><td class="left">PSA Legacy</td><td class="">$701K</td><td class="">$658K</td><td class="">$615K</td><td class="">$525K</td><td class="">$464K</td><td class="">$368K</td><td class="">$307K</td><td class="">$245K</td><td class="">$195K</td><td class="">$99K</td></tr>
+          <tr><td class="left">PSA Web</td><td class="green-val">$204K</td><td class="green-val">$301K</td><td class="green-val">$398K</td><td class="green-val">$556K</td><td class="green-val">$673K</td><td class="green-val">$804K</td><td class="green-val">$861K</td><td class="green-val">$954K</td><td class="green-val">$1,137K</td><td class="green-val">$1,271K</td></tr>
+          <tr><td class="left">Payments (AR+AP)</td><td class="">$522K</td><td class="">$538K</td><td class="">$565K</td><td class="">$558K</td><td class="">$561K</td><td class="">$566K</td><td class="">$506K</td><td class="">$445K</td><td class="">$458K</td><td class="">$385K</td></tr>
+          <tr><td class="left">Total</td><td class="bold">$2,728K</td><td class="bold">$2,706K</td><td class="bold">$2,825K</td><td class="bold">$2,893K</td><td class="bold">$3,067K</td><td class="bold">$2,846K</td><td class="bold">$2,878K</td><td class="bold">$2,795K</td><td class="bold">$2,943K</td><td class="bold">$2,910K</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="display:flex; gap:14px; margin-top:4px;">
+      <div style="flex:1;">
+        <div class="section-label" style="margin-top:0; margin-bottom:3px; font-size:10px;">CAC Ratio — By Product (Trailing 10 Mo)</div>
+        <table class="data-table" style="font-size:10px;">
+          <thead><tr><th class="left">Product</th><th>Jul'25</th><th>Aug'25</th><th>Sep'25</th><th>Oct'25</th><th>Nov'25</th><th>Dec'25</th><th>Jan'26</th><th>Feb'26</th><th>Mar'26</th><th>Apr'26</th></tr></thead>
+          <tbody>
+            <tr><td class="left">Total</td><td class="">0.38x</td><td class="">0.38x</td><td class="">0.39x</td><td class="">0.40x</td><td class="">0.41x</td><td class="">0.38x</td><td class="">0.38x</td><td class="">0.36x</td><td class="">0.37x</td><td class="">0.36x</td></tr>
+            <tr><td class="left">Billing</td><td class="">0.59x</td><td class="">0.57x</td><td class="">0.60x</td><td class="">0.59x</td><td class="">0.61x</td><td class="">0.49x</td><td class="">0.50x</td><td class="">0.48x</td><td class="">0.48x</td><td class="">0.48x</td></tr>
+            <tr><td class="left">PSA Total</td><td class="">0.22x</td><td class="">0.22x</td><td class="">0.23x</td><td class="">0.25x</td><td class="">0.26x</td><td class="">0.26x</td><td class="">0.25x</td><td class="">0.25x</td><td class="">0.28x</td><td class="">0.27x</td></tr>
+            <tr><td class="left">PSA Web</td><td class="green-val">0.05x</td><td class="green-val">0.07x</td><td class="green-val">0.09x</td><td class="green-val">0.13x</td><td class="green-val">0.15x</td><td class="green-val">0.18x</td><td class="green-val">0.19x</td><td class="green-val">0.20x</td><td class="green-val">0.24x</td><td class="green-val">0.25x</td></tr>
+            <tr><td class="left">Payments</td><td class="">0.72x</td><td class="">0.74x</td><td class="">0.76x</td><td class="">0.67x</td><td class="">0.64x</td><td class="">0.72x</td><td class="">0.74x</td><td class="">0.64x</td><td class="">0.68x</td><td class="">0.56x</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div style="display:flex; gap:14px; margin-top:4px;">
+      <div style="flex:1;">
+        <div class="section-label" style="margin-top:0; margin-bottom:3px; font-size:10px;">S&amp;M Expense — April 2026</div>
+        <table class="data-table" style="font-size:11px;">
+          <thead><tr><th class="left">Item</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td class="left">Total S&amp;M Expense (TTM)</td><td>$5,670K</td></tr>
+            <tr><td class="left">Billing allocation</td><td>29.7%</td></tr>
+            <tr><td class="left">PSA allocation</td><td>61.9%</td></tr>
+            <tr><td class="left">Payments allocation</td><td>8.5%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="flex:2; font-size:11px; color:var(--light-blue); line-height:1.7;">
+        <div class="section-label green" style="margin-top:0; margin-bottom:4px; font-size:10px;">Key Observations</div>
+        ▸ PSA Web TTM bookings grew from $204K (Jul '25) to $1.27M (Apr '26) — 6× in 10 months, now the largest new-ARR product.<br>
+        ▸ Billing TTM bookings declining — from $1.25M to $1.09M over the period; new sales problem confirmed.<br>
+        ▸ PSA Legacy bookings collapsed — $701K → $99K over 10 months; effectively in wind-down.<br>
+        ▸ PSA gets ~62% of S&M spend; with Web now the growth engine and Legacy in decline, allocation will need to shift to Web-specific investment.
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Rev.io | Financial Results | April 2026</span>
+    <span>CONFIDENTIAL</span>
+  </div>
+</div>
+
+<!-- SLIDE 9: PAYMENTS TRACKER -->
+<div class="slide" id="slide-9">
   <div class="slide-header">
     <h1>Payments Revenue Tracker</h1>
     <div class="subtitle">November 2025 – April 2026 | Paya/Nuvei &amp; TRX</div>
@@ -603,8 +665,8 @@
   </div>
 </div>
 
-<!-- SLIDE 9: EXPENSE SUMMARY (SUPPLEMENTAL) -->
-<div class="slide" id="slide-9">
+<!-- SLIDE 10: EXPENSE SUMMARY (SUPPLEMENTAL) -->
+<div class="slide" id="slide-10">
   <div class="slide-header">
     <h1>Expense Summary <span class="appendix-badge">SUPPLEMENTAL</span></h1>
     <div class="subtitle">April 2026 | Actuals vs. Budget by Cost Center</div>
@@ -639,93 +701,96 @@
 </div><!-- end deck -->
 <div class="nav">
   <button id="btn-prev" onclick="navigate(-1)" disabled>←</button>
-  <span class="counter" id="counter">1 / 9</span>
+  <span class="counter" id="counter">1 / 10</span>
   <button id="btn-next" onclick="navigate(1)">→</button>
 </div>
 <script>
-  const TOTAL = 9;
+  const TOTAL = 10;
   let current = 1;
   const chartData = {
-    billing:  [26.5,26.5,26.2,26.5,26.9,26.6,27.2,27.1,27.2,27.4,27.8,27.3],
-    psa:      [9.0,9.1,9.1,9.1,9.2,9.0,8.9,8.8,8.6,8.6,8.5,8.3],
-    payments: [2.0,2.1,2.2,2.0,2.1,2.0,1.6,2.0,1.9,2.0,2.6,1.9],
+    billing:[26.5,26.5,26.2,26.5,26.9,26.6,27.2,27.1,27.2,27.4,27.8,27.3],
+    psa:[9.0,9.1,9.1,9.1,9.2,9.0,8.9,8.8,8.6,8.6,8.5,8.3],
+    payments:[2.0,2.1,2.2,2.0,2.1,2.0,1.6,2.0,1.9,2.0,2.6,1.9],
   };
-  const chartColors = {billing:'#2399B5',psa:'#6EBE4F',payments:'#FFA500'};
+  const chartColors={billing:'#2399B5',psa:'#6EBE4F',payments:'#FFA500'};
 
   const cacMonths  = ["Jul'25", "Aug'25", "Sep'25", "Oct'25", "Nov'25", "Dec'25", "Jan'26", "Feb'26", "Mar'26", "Apr'26"];
   const cacTotal   = [0.383, 0.377, 0.389, 0.396, 0.411, 0.38, 0.376, 0.358, 0.374, 0.359];
   const cacBilling = [0.591, 0.572, 0.603, 0.59, 0.613, 0.49, 0.502, 0.484, 0.484, 0.481];
   const cacPsa     = [0.216, 0.221, 0.227, 0.249, 0.261, 0.263, 0.253, 0.252, 0.277, 0.273];
-  const cacPsaWeb  = [0.049, 0.07, 0.089, 0.128, 0.155, 0.18, 0.187, 0.201, 0.236, 0.253];
-  const cacPmts    = [0.72, 0.738, 0.758, 0.674, 0.641, 0.723, 0.744, 0.639, 0.68, 0.557];
+  const cacPsaWeb  = [0.049, 0.07, 0.089, 0.128, 0.154, 0.18, 0.187, 0.201, 0.236, 0.253];
+  const cacPmts    = [0.72, 0.738, 0.758, 0.674, 0.641, 0.722, 0.744, 0.639, 0.68, 0.557];
   const ltvData    = [3.303, 3.25, 3.351, 3.416, 3.54, 3.271, 2.938, 2.402, 3.094, 2.778];
 
-  function buildLineChart(svgId, data, color) {
+  function buildLineChart(svgId,data,color) {
     const svg=document.getElementById(svgId); if(!svg) return;
     const W=300,H=100,pad=10;
-    const min=Math.min(...data)*0.95, max=Math.max(...data)*1.05;
+    const min=Math.min(...data)*0.95,max=Math.max(...data)*1.05;
     const xStep=(W-pad*2)/(data.length-1);
     const pts=data.map((v,i)=>({x:pad+i*xStep,y:H-pad-((v-min)/(max-min))*(H-pad*2),v}));
     const pointStr=pts.map(p=>`${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
     const circles=pts.map(p=>{
-      const above=p.y>H/2; const ty=above?p.y-5:p.y+11;
+      const above=p.y>H/2;const ty=above?p.y-5:p.y+11;
       return `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="2.5" fill="${color}"/>
               <text x="${p.x.toFixed(1)}" y="${ty.toFixed(1)}" text-anchor="middle" fill="${color}" font-size="6.5" font-family="Arial">${p.v}</text>`;
     }).join('');
     svg.innerHTML=`<defs><linearGradient id="g${svgId}" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${color}" stop-opacity="0.22"/><stop offset="100%" stop-color="${color}" stop-opacity="0.02"/></linearGradient></defs>
       <polygon points="${pts[0].x.toFixed(1)},${H-pad} ${pointStr} ${pts[pts.length-1].x.toFixed(1)},${H-pad}" fill="url(#g${svgId})"/>
-      <polyline points="${pointStr}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <polyline points="${pointStr}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round"/>
       ${circles}`;
   }
 
   function buildCACChart() {
-    const svg = document.getElementById('cac-ratio-svg');
-    if (!svg) return;
-    const W=500, H=145, pl=34, pr=12, pt=12, pb=20;
-    const cw=W-pl-pr, ch=H-pt-pb, nPts=cacTotal.length;
+    const svg=document.getElementById('cac-ratio-svg'); if(!svg) return;
+    const W=500,H=145,pl=34,pr=52,pt=12,pb=20;
+    const cw=W-pl-pr,ch=H-pt-pb,nPts=cacTotal.length;
     const allV=[...cacTotal,...cacBilling,...cacPsa,...cacPsaWeb,...cacPmts];
     const maxV=Math.ceil(Math.max(...allV)*10)/10+0.05, minV=0;
     const toX=i=>pl+i*(cw/(nPts-1));
     const toY=v=>pt+ch-((v-minV)/(maxV-minV))*ch;
     let g='';
-    // gridlines
     [0,0.2,0.4,0.6,0.8].forEach(t=>{
       if(t>maxV) return;
       const y=toY(t);
       g+=`<line x1="${pl}" y1="${y.toFixed(1)}" x2="${W-pr}" y2="${y.toFixed(1)}" stroke="#1D3756" stroke-width="0.8"/>
           <text x="${pl-3}" y="${(y+3).toFixed(1)}" text-anchor="end" fill="#AECCE0" font-size="8" font-family="Arial">${t.toFixed(1)}</text>`;
     });
-    // x labels
     cacMonths.forEach((m,i)=>{
       g+=`<text x="${toX(i).toFixed(1)}" y="${(H-3).toFixed(1)}" text-anchor="middle" fill="#AECCE0" font-size="7.5" font-family="Arial">${m}</text>`;
     });
-    // series
     const series=[
-      {data:cacTotal,   color:'#2399B5', w:2.5, dash:''},
-      {data:cacBilling, color:'#6EBE4F', w:1.5, dash:''},
-      {data:cacPsa,     color:'#FFA500', w:1.5, dash:''},
-      {data:cacPsaWeb,  color:'#FF6B35', w:1.2, dash:'4,3'},
-      {data:cacPmts,    color:'#AECCE0', w:1.5, dash:''},
+      {data:cacTotal,   color:'#2399B5',w:2.5,dash:''},
+      {data:cacBilling, color:'#6EBE4F',w:1.5,dash:''},
+      {data:cacPsa,     color:'#FFA500',w:1.5,dash:''},
+      {data:cacPsaWeb,  color:'#FF6B35',w:1.2,dash:'4,3'},
+      {data:cacPmts,    color:'#AECCE0',w:1.5,dash:''},
     ];
+    // Draw lines + dots first
     series.forEach(s=>{
       const pts=s.data.map((v,i)=>`${toX(i).toFixed(1)},${toY(v).toFixed(1)}`).join(' ');
       g+=`<polyline points="${pts}" fill="none" stroke="${s.color}" stroke-width="${s.w}" stroke-dasharray="${s.dash}" stroke-linejoin="round" stroke-linecap="round"/>`;
-      s.data.forEach((v,i)=>{
-        g+=`<circle cx="${toX(i).toFixed(1)}" cy="${toY(v).toFixed(1)}" r="2" fill="${s.color}"/>`;
-      });
-      // label on last point
-      const lx=toX(nPts-1), ly=toY(s.data[nPts-1]);
-      const above=ly>pt+ch*0.5;
-      g+=`<text x="${(lx-2).toFixed(1)}" y="${(above?ly-5:ly+11).toFixed(1)}" text-anchor="middle" fill="${s.color}" font-size="7.5" font-family="Arial" font-weight="bold">${s.data[nPts-1].toFixed(2)}</text>`;
+      s.data.forEach((v,i)=>{ g+=`<circle cx="${toX(i).toFixed(1)}" cy="${toY(v).toFixed(1)}" r="2" fill="${s.color}"/>`; });
+    });
+    // Stagger end labels: sort by y-value at last point, place labels spaced 12px apart
+    const endPts = series.map(s=>({color:s.color, val:s.data[nPts-1], y:toY(s.data[nPts-1])}))
+                         .sort((a,b)=>a.y-b.y);
+    const lx = toX(nPts-1)+6;
+    let usedY=[]; const minGap=11;
+    endPts.forEach(ep=>{
+      let ly=ep.y;
+      // push down if too close to previous
+      usedY.forEach(uy=>{ if(Math.abs(ly-uy)<minGap) ly=uy+minGap; });
+      usedY.push(ly);
+      g+=`<line x1="${(toX(nPts-1)+2).toFixed(1)}" y1="${ep.y.toFixed(1)}" x2="${(lx-2).toFixed(1)}" y2="${ly.toFixed(1)}" stroke="${ep.color}" stroke-width="0.6" stroke-dasharray="2,2"/>`;
+      g+=`<text x="${lx.toFixed(1)}" y="${(ly+3).toFixed(1)}" fill="${ep.color}" font-size="8" font-family="Arial" font-weight="bold">${ep.val.toFixed(2)}</text>`;
     });
     svg.innerHTML=g;
   }
 
   function buildLTVChart() {
-    const svg=document.getElementById('ltv-svg');
-    if(!svg) return;
-    const W=500, H=100, pl=34, pr=12, pt=10, pb=8;
-    const cw=W-pl-pr, ch=H-pt-pb, n=ltvData.length;
+    const svg=document.getElementById('ltv-svg'); if(!svg) return;
+    const W=500,H=100,pl=34,pr=12,pt=10,pb=8;
+    const cw=W-pl-pr,ch=H-pt-pb,n=ltvData.length;
     const maxV=Math.max(...ltvData)*1.12, minV=0;
     const toX=i=>pl+i*(cw/(n-1));
     const toY=v=>pt+ch-((v-minV)/(maxV-minV))*ch;
@@ -740,7 +805,7 @@
     g+=`<polygon points="${toX(0).toFixed(1)},${(pt+ch).toFixed(1)} ${pts} ${toX(n-1).toFixed(1)},${(pt+ch).toFixed(1)}" fill="url(#gltv)"/>
         <polyline points="${pts}" fill="none" stroke="#6EBE4F" stroke-width="2" stroke-linejoin="round"/>`;
     ltvData.forEach((v,i)=>{
-      const x=toX(i), y=toY(v), above=y>pt+ch/2;
+      const x=toX(i),y=toY(v),above=y>pt+ch/2;
       g+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.5" fill="#6EBE4F"/>
           <text x="${x.toFixed(1)}" y="${(above?y-5:y+11).toFixed(1)}" text-anchor="middle" fill="#6EBE4F" font-size="7.5" font-family="Arial">${v.toFixed(2)}x</text>`;
     });
