@@ -500,23 +500,26 @@
   </div>
   <div class="divider"></div>
   <div class="slide-content" style="flex-direction:row; gap:14px; padding-bottom:36px;">
+    <!-- LEFT: Charts -->
     <div style="flex:1.5; display:flex; flex-direction:column; gap:6px;">
       <div style="flex:1.1; display:flex; flex-direction:column;">
         <div class="section-label" style="margin-top:0; margin-bottom:2px; font-size:10px;">CAC Ratio by Product — Trailing 10 Months</div>
-        <svg id="cac-ratio-svg" style="flex:1; width:100%;" viewBox="0 0 500 140" preserveAspectRatio="none"></svg>
-        <div style="display:flex; gap:14px; font-size:9px; margin-top:3px;">
+        <svg id="cac-ratio-svg" style="flex:1; width:100%;" viewBox="0 0 500 145" preserveAspectRatio="none"></svg>
+        <div style="display:flex; gap:12px; font-size:9px; margin-top:3px; flex-wrap:wrap;">
           <span style="color:#2399B5;">&#9644; Total</span>
           <span style="color:#6EBE4F;">&#9644; Billing</span>
-          <span style="color:#FFA500;">&#9644; PSA</span>
+          <span style="color:#FFA500;">&#9644; PSA Total</span>
+          <span style="color:#FF6B35;">- - PSA Web</span>
           <span style="color:#AECCE0;">&#9644; Payments</span>
         </div>
       </div>
       <div style="flex:1; display:flex; flex-direction:column; margin-top:2px;">
         <div class="section-label green" style="margin-top:0; margin-bottom:2px; font-size:10px;">LTV / CAC Trend (Total)</div>
-        <svg id="ltv-svg" style="flex:1; width:100%;" viewBox="0 0 500 110" preserveAspectRatio="none"></svg>
+        <svg id="ltv-svg" style="flex:1; width:100%;" viewBox="0 0 500 100" preserveAspectRatio="none"></svg>
       </div>
       <div class="footnote">Source: 2. 3-Statement '26 rows 259–274 &nbsp;|&nbsp; Industry median CAC ~1x; Rev.io 0.36x = top quartile</div>
     </div>
+    <!-- RIGHT: Table + KPIs + Commentary -->
     <div style="flex:1; display:flex; flex-direction:column; gap:8px;">
       <div>
         <div class="section-label" style="margin-top:0; margin-bottom:4px; font-size:10px;">April 2026 — By Product</div>
@@ -524,8 +527,9 @@
           <thead><tr><th class="left">Product</th><th>CAC Ratio</th><th>Payback</th></tr></thead>
           <tbody>
             <tr><td class="left">Billing</td><td class="green-val">0.48x</td><td>25.0 mo</td></tr>
-            <tr><td class="left">PSA Total</td><td class="green-val">0.28x</td><td class="red">43.2 mo</td></tr>
-            <tr><td class="left">Payments</td><td>0.50x</td><td class="green-val">24.1 mo</td></tr>
+            <tr><td class="left">PSA Total</td><td class="green-val">0.27x</td><td class="red">44.0 mo</td></tr>
+            <tr><td class="left" style="padding-left:18px; color:var(--amber);">↳ PSA Web</td><td style="color:var(--amber);">0.25x</td><td class="red" style="color:var(--amber);">47.4 mo</td></tr>
+            <tr><td class="left">Payments</td><td>0.56x</td><td class="green-val">21.5 mo</td></tr>
             <tr><td class="left bold">Total</td><td class="green-val">0.36x</td><td>33.4 mo</td></tr>
           </tbody>
         </table>
@@ -542,12 +546,12 @@
           <div class="kpi-sub red" style="font-size:9px;">↓ from 3.54x (Nov)</div>
         </div>
       </div>
-      <div style="flex:1; font-size:11.5px; color:var(--white); line-height:1.7;">
+      <div style="flex:1; font-size:11px; color:var(--white); line-height:1.65;">
         ▸ <strong>Overall efficiency strong</strong> — 0.36x well below ~1x median.<br><br>
         ▸ <strong>Billing drives the story</strong> — payback ~25 months, strong unit economics.<br><br>
-        ▸ <strong>PSA CAC (0.28x) is misleading</strong> — minimal spend on a declining product. 43-month payback compressing as ARR erodes.<br><br>
-        ▸ <strong>LTV/CAC declined 3.54x → 2.78x</strong> since Nov '25 — entirely PSA-driven. Watch for continued compression.<br><br>
-        ▸ <strong>Payback creeping up</strong> — 29 mo (Nov) to 33 mo now.
+        ▸ <strong>PSA Web CAC improving</strong> — 0.05x (Jul '25) → 0.25x (Apr '26) as cohorts mature; payback still long at 47 months but trending down from 247 months.<br><br>
+        ▸ <strong>PSA Total CAC (0.27x) low — misleading</strong> — minimal spend on declining product. 44-month payback compressing as ARR erodes.<br><br>
+        ▸ <strong>LTV/CAC declined 3.54x → 2.78x</strong> since Nov '25 — PSA-driven. Watch for continued compression.
       </div>
     </div>
   </div>
@@ -633,48 +637,42 @@
 </div>
 
 </div><!-- end deck -->
-
-<!-- Navigation -->
 <div class="nav">
   <button id="btn-prev" onclick="navigate(-1)" disabled>←</button>
   <span class="counter" id="counter">1 / 9</span>
   <button id="btn-next" onclick="navigate(1)">→</button>
 </div>
-
 <script>
   const TOTAL = 9;
   let current = 1;
-
   const chartData = {
-    billing:  [26.5, 26.5, 26.2, 26.5, 26.9, 26.6, 27.2, 27.1, 27.2, 27.4, 27.8, 27.3],
-    psa:      [9.0,  9.1,  9.1,  9.1,  9.2,  9.0,  8.9,  8.8,  8.6,  8.6,  8.5,  8.3],
-    payments: [2.0,  2.1,  2.2,  2.0,  2.1,  2.0,  1.6,  2.0,  1.9,  2.0,  2.6,  1.9],
+    billing:  [26.5,26.5,26.2,26.5,26.9,26.6,27.2,27.1,27.2,27.4,27.8,27.3],
+    psa:      [9.0,9.1,9.1,9.1,9.2,9.0,8.9,8.8,8.6,8.6,8.5,8.3],
+    payments: [2.0,2.1,2.2,2.0,2.1,2.0,1.6,2.0,1.9,2.0,2.6,1.9],
   };
-  const chartColors = { billing: '#2399B5', psa: '#6EBE4F', payments: '#FFA500' };
+  const chartColors = {billing:'#2399B5',psa:'#6EBE4F',payments:'#FFA500'};
 
-  const cacMonths = ["Jul'25", "Aug'25", "Sep'25", "Oct'25", "Nov'25", "Dec'25", "Jan'26", "Feb'26", "Mar'26", "Apr'26"];
-  const cacTotal   = [0.383, 0.377, 0.389, 0.396, 0.411, 0.379, 0.376, 0.358, 0.374, 0.359];
-  const cacBilling = [0.591, 0.572, 0.603, 0.59, 0.613, 0.49, 0.502, 0.484, 0.483, 0.48];
-  const cacPsa     = [0.221, 0.227, 0.233, 0.255, 0.267, 0.269, 0.258, 0.257, 0.281, 0.278];
-  const cacPmts    = [0.633, 0.646, 0.663, 0.597, 0.57, 0.642, 0.662, 0.571, 0.613, 0.498];
-  const ltvTotal   = [3.303, 3.25, 3.351, 3.416, 3.54, 3.271, 2.938, 2.402, 3.094, 2.778];
-
+  const cacMonths  = ["Jul'25", "Aug'25", "Sep'25", "Oct'25", "Nov'25", "Dec'25", "Jan'26", "Feb'26", "Mar'26", "Apr'26"];
+  const cacTotal   = [0.383, 0.377, 0.389, 0.396, 0.411, 0.38, 0.376, 0.358, 0.374, 0.359];
+  const cacBilling = [0.591, 0.572, 0.603, 0.59, 0.613, 0.49, 0.502, 0.484, 0.484, 0.481];
+  const cacPsa     = [0.216, 0.221, 0.227, 0.249, 0.261, 0.263, 0.253, 0.252, 0.277, 0.273];
+  const cacPsaWeb  = [0.049, 0.07, 0.089, 0.128, 0.155, 0.18, 0.187, 0.201, 0.236, 0.253];
+  const cacPmts    = [0.72, 0.738, 0.758, 0.674, 0.641, 0.723, 0.744, 0.639, 0.68, 0.557];
+  const ltvData    = [3.303, 3.25, 3.351, 3.416, 3.54, 3.271, 2.938, 2.402, 3.094, 2.778];
 
   function buildLineChart(svgId, data, color) {
-    const svg = document.getElementById(svgId);
-    if (!svg) return;
-    const W = 300, H = 100, pad = 10;
-    const min = Math.min(...data) * 0.95;
-    const max = Math.max(...data) * 1.05;
-    const xStep = (W - pad*2) / (data.length - 1);
-    const pts = data.map((v, i) => ({x: pad + i * xStep, y: H - pad - ((v - min) / (max - min)) * (H - pad*2), v}));
-    const pointStr = pts.map(p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
-    const circles = pts.map(p => {
-      const above = p.y > H / 2; const ty = above ? p.y - 5 : p.y + 11;
+    const svg=document.getElementById(svgId); if(!svg) return;
+    const W=300,H=100,pad=10;
+    const min=Math.min(...data)*0.95, max=Math.max(...data)*1.05;
+    const xStep=(W-pad*2)/(data.length-1);
+    const pts=data.map((v,i)=>({x:pad+i*xStep,y:H-pad-((v-min)/(max-min))*(H-pad*2),v}));
+    const pointStr=pts.map(p=>`${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
+    const circles=pts.map(p=>{
+      const above=p.y>H/2; const ty=above?p.y-5:p.y+11;
       return `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="2.5" fill="${color}"/>
               <text x="${p.x.toFixed(1)}" y="${ty.toFixed(1)}" text-anchor="middle" fill="${color}" font-size="6.5" font-family="Arial">${p.v}</text>`;
     }).join('');
-    svg.innerHTML = `<defs><linearGradient id="g${svgId}" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${color}" stop-opacity="0.22"/><stop offset="100%" stop-color="${color}" stop-opacity="0.02"/></linearGradient></defs>
+    svg.innerHTML=`<defs><linearGradient id="g${svgId}" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${color}" stop-opacity="0.22"/><stop offset="100%" stop-color="${color}" stop-opacity="0.02"/></linearGradient></defs>
       <polygon points="${pts[0].x.toFixed(1)},${H-pad} ${pointStr} ${pts[pts.length-1].x.toFixed(1)},${H-pad}" fill="url(#g${svgId})"/>
       <polyline points="${pointStr}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
       ${circles}`;
@@ -683,95 +681,89 @@
   function buildCACChart() {
     const svg = document.getElementById('cac-ratio-svg');
     if (!svg) return;
-    const W = 500, H = 140, pl = 34, pr = 14, pt = 12, pb = 18;
-    const cw = W-pl-pr, ch = H-pt-pb, n = cacTotal.length;
-    const allV = [...cacTotal,...cacBilling,...cacPsa,...cacPmts];
-    const maxV = Math.max(...allV)*1.12, minV = 0;
-    const toX = i => pl + i*(cw/(n-1));
-    const toY = v => pt + ch - ((v-minV)/(maxV-minV))*ch;
-    let g = '';
-    // gridlines + y labels
-    [0,0.2,0.4,0.6,0.8].forEach(t => {
+    const W=500, H=145, pl=34, pr=12, pt=12, pb=20;
+    const cw=W-pl-pr, ch=H-pt-pb, nPts=cacTotal.length;
+    const allV=[...cacTotal,...cacBilling,...cacPsa,...cacPsaWeb,...cacPmts];
+    const maxV=Math.ceil(Math.max(...allV)*10)/10+0.05, minV=0;
+    const toX=i=>pl+i*(cw/(nPts-1));
+    const toY=v=>pt+ch-((v-minV)/(maxV-minV))*ch;
+    let g='';
+    // gridlines
+    [0,0.2,0.4,0.6,0.8].forEach(t=>{
       if(t>maxV) return;
       const y=toY(t);
       g+=`<line x1="${pl}" y1="${y.toFixed(1)}" x2="${W-pr}" y2="${y.toFixed(1)}" stroke="#1D3756" stroke-width="0.8"/>
           <text x="${pl-3}" y="${(y+3).toFixed(1)}" text-anchor="end" fill="#AECCE0" font-size="8" font-family="Arial">${t.toFixed(1)}</text>`;
     });
-    // x axis labels
-    cacMonths.forEach((m,i) => {
+    // x labels
+    cacMonths.forEach((m,i)=>{
       g+=`<text x="${toX(i).toFixed(1)}" y="${(H-3).toFixed(1)}" text-anchor="middle" fill="#AECCE0" font-size="7.5" font-family="Arial">${m}</text>`;
     });
     // series
     const series=[
-      {data:cacTotal,   color:'#2399B5', w:2.5},
-      {data:cacBilling, color:'#6EBE4F', w:1.5},
-      {data:cacPsa,     color:'#FFA500', w:1.5},
-      {data:cacPmts,    color:'#AECCE0', w:1.5},
+      {data:cacTotal,   color:'#2399B5', w:2.5, dash:''},
+      {data:cacBilling, color:'#6EBE4F', w:1.5, dash:''},
+      {data:cacPsa,     color:'#FFA500', w:1.5, dash:''},
+      {data:cacPsaWeb,  color:'#FF6B35', w:1.2, dash:'4,3'},
+      {data:cacPmts,    color:'#AECCE0', w:1.5, dash:''},
     ];
-    series.forEach(s => {
-      const pts = s.data.map((v,i)=>`${toX(i).toFixed(1)},${toY(v).toFixed(1)}`).join(' ');
-      g+=`<polyline points="${pts}" fill="none" stroke="${s.color}" stroke-width="${s.w}" stroke-linejoin="round" stroke-linecap="round"/>`;
-      s.data.forEach((v,i) => {
-        const x=toX(i), y=toY(v);
-        g+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.5" fill="${s.color}"/>`;
+    series.forEach(s=>{
+      const pts=s.data.map((v,i)=>`${toX(i).toFixed(1)},${toY(v).toFixed(1)}`).join(' ');
+      g+=`<polyline points="${pts}" fill="none" stroke="${s.color}" stroke-width="${s.w}" stroke-dasharray="${s.dash}" stroke-linejoin="round" stroke-linecap="round"/>`;
+      s.data.forEach((v,i)=>{
+        g+=`<circle cx="${toX(i).toFixed(1)}" cy="${toY(v).toFixed(1)}" r="2" fill="${s.color}"/>`;
       });
-      // label last point
-      const lx=toX(n-1), ly=toY(s.data[n-1]);
-      const above = ly > pt+ch/2;
-      g+=`<text x="${(lx-2).toFixed(1)}" y="${(above?ly-5:ly+11).toFixed(1)}" text-anchor="middle" fill="${s.color}" font-size="7.5" font-family="Arial" font-weight="bold">${s.data[n-1].toFixed(2)}</text>`;
+      // label on last point
+      const lx=toX(nPts-1), ly=toY(s.data[nPts-1]);
+      const above=ly>pt+ch*0.5;
+      g+=`<text x="${(lx-2).toFixed(1)}" y="${(above?ly-5:ly+11).toFixed(1)}" text-anchor="middle" fill="${s.color}" font-size="7.5" font-family="Arial" font-weight="bold">${s.data[nPts-1].toFixed(2)}</text>`;
     });
-    svg.innerHTML = g;
+    svg.innerHTML=g;
   }
 
   function buildLTVChart() {
-    const svg = document.getElementById('ltv-svg');
-    if (!svg) return;
-    const W = 500, H = 110, pl = 34, pr = 14, pt = 10, pb = 10;
-    const cw = W-pl-pr, ch = H-pt-pb, n = ltvTotal.length;
-    const maxV = Math.max(...ltvTotal)*1.12, minV = 0;
-    const toX = i => pl + i*(cw/(n-1));
-    const toY = v => pt + ch - ((v-minV)/(maxV-minV))*ch;
-    let g = '';
-    [0,1,2,3,4].forEach(t => {
+    const svg=document.getElementById('ltv-svg');
+    if(!svg) return;
+    const W=500, H=100, pl=34, pr=12, pt=10, pb=8;
+    const cw=W-pl-pr, ch=H-pt-pb, n=ltvData.length;
+    const maxV=Math.max(...ltvData)*1.12, minV=0;
+    const toX=i=>pl+i*(cw/(n-1));
+    const toY=v=>pt+ch-((v-minV)/(maxV-minV))*ch;
+    let g=`<defs><linearGradient id="gltv" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6EBE4F" stop-opacity="0.25"/><stop offset="100%" stop-color="#6EBE4F" stop-opacity="0.02"/></linearGradient></defs>`;
+    [0,1,2,3,4].forEach(t=>{
       if(t>maxV) return;
       const y=toY(t);
       g+=`<line x1="${pl}" y1="${y.toFixed(1)}" x2="${W-pr}" y2="${y.toFixed(1)}" stroke="#1D3756" stroke-width="0.8"/>
           <text x="${pl-3}" y="${(y+3).toFixed(1)}" text-anchor="end" fill="#AECCE0" font-size="8" font-family="Arial">${t}x</text>`;
     });
-    const pts = ltvTotal.map((v,i)=>`${toX(i).toFixed(1)},${toY(v).toFixed(1)}`).join(' ');
-    g+=`<defs><linearGradient id="gltv" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6EBE4F" stop-opacity="0.25"/><stop offset="100%" stop-color="#6EBE4F" stop-opacity="0.02"/></linearGradient></defs>`;
-    g+=`<polygon points="${toX(0).toFixed(1)},${(pt+ch).toFixed(1)} ${pts} ${toX(n-1).toFixed(1)},${(pt+ch).toFixed(1)}" fill="url(#gltv)"/>`;
-    g+=`<polyline points="${pts}" fill="none" stroke="#6EBE4F" stroke-width="2" stroke-linejoin="round"/>`;
-    ltvTotal.forEach((v,i) => {
-      const x=toX(i), y=toY(v);
-      const above = y > pt+ch/2;
-      g+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.5" fill="#6EBE4F"/>`;
-      g+=`<text x="${x.toFixed(1)}" y="${(above?y-5:y+11).toFixed(1)}" text-anchor="middle" fill="#6EBE4F" font-size="7.5" font-family="Arial">${v.toFixed(2)}x</text>`;
+    const pts=ltvData.map((v,i)=>`${toX(i).toFixed(1)},${toY(v).toFixed(1)}`).join(' ');
+    g+=`<polygon points="${toX(0).toFixed(1)},${(pt+ch).toFixed(1)} ${pts} ${toX(n-1).toFixed(1)},${(pt+ch).toFixed(1)}" fill="url(#gltv)"/>
+        <polyline points="${pts}" fill="none" stroke="#6EBE4F" stroke-width="2" stroke-linejoin="round"/>`;
+    ltvData.forEach((v,i)=>{
+      const x=toX(i), y=toY(v), above=y>pt+ch/2;
+      g+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.5" fill="#6EBE4F"/>
+          <text x="${x.toFixed(1)}" y="${(above?y-5:y+11).toFixed(1)}" text-anchor="middle" fill="#6EBE4F" font-size="7.5" font-family="Arial">${v.toFixed(2)}x</text>`;
     });
-    svg.innerHTML = g;
+    svg.innerHTML=g;
   }
 
   function navigate(dir) {
-    document.getElementById('slide-' + current).classList.remove('active');
-    current = Math.max(1, Math.min(TOTAL, current + dir));
-    document.getElementById('slide-' + current).classList.add('active');
-    document.getElementById('counter').textContent = current + ' / ' + TOTAL;
-    document.getElementById('btn-prev').disabled = current === 1;
-    document.getElementById('btn-next').disabled = current === TOTAL;
-    if (current === 5) {
-      setTimeout(() => {
-        buildLineChart('billing-svg', chartData.billing, chartColors.billing);
-        buildLineChart('psa-svg', chartData.psa, chartColors.psa);
-        buildLineChart('payments-svg', chartData.payments, chartColors.payments);
-      }, 50);
-    }
-    if (current === 7) {
-      setTimeout(() => { buildCACChart(); buildLTVChart(); }, 50);
-    }
+    document.getElementById('slide-'+current).classList.remove('active');
+    current=Math.max(1,Math.min(TOTAL,current+dir));
+    document.getElementById('slide-'+current).classList.add('active');
+    document.getElementById('counter').textContent=current+' / '+TOTAL;
+    document.getElementById('btn-prev').disabled=current===1;
+    document.getElementById('btn-next').disabled=current===TOTAL;
+    if(current===5) setTimeout(()=>{
+      buildLineChart('billing-svg',chartData.billing,chartColors.billing);
+      buildLineChart('psa-svg',chartData.psa,chartColors.psa);
+      buildLineChart('payments-svg',chartData.payments,chartColors.payments);
+    },50);
+    if(current===7) setTimeout(()=>{buildCACChart();buildLTVChart();},50);
   }
-  document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') navigate(1);
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') navigate(-1);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ') navigate(1);
+    if(e.key==='ArrowLeft'||e.key==='ArrowUp') navigate(-1);
   });
 </script>
 </body>
