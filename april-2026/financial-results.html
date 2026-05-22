@@ -496,58 +496,58 @@
 <div class="slide" id="slide-7">
   <div class="slide-header">
     <h1>CAC &amp; LTV Analysis</h1>
-    <div class="subtitle">April 2026 | Customer Acquisition Cost Trends — Trailing 10 Months (Jul 2025 – Apr 2026)</div>
+    <div class="subtitle">April 2026 | Customer Acquisition Cost — Trailing 10 Months (Jul 2025 – Apr 2026)</div>
   </div>
   <div class="divider"></div>
-  <div class="slide-content" style="gap:10px; padding-bottom:36px;">
-    <div class="kpi-row" style="margin-bottom:4px;">
-      <div class="kpi-box green" style="padding:10px 14px 10px 18px;">
-        <div class="kpi-label" style="color:var(--green); font-size:11px;">CAC Ratio (TTM)</div>
-        <div class="kpi-value" style="font-size:38px;">0.36x</div>
-        <div class="kpi-sub green-val" style="font-size:11px;">Well below ~1x industry median</div>
-      </div>
-      <div class="kpi-box" style="padding:10px 14px 10px 18px;">
-        <div class="kpi-label" style="font-size:11px;">Payback Period</div>
-        <div class="kpi-value" style="font-size:38px;">33.4 mo</div>
-        <div class="kpi-sub" style="color:var(--light-blue); font-size:11px;">Up from 29 mo (Nov '25 low)</div>
-      </div>
-      <div class="kpi-box blue" style="padding:10px 14px 10px 18px;">
-        <div class="kpi-label" style="color:var(--light-blue); font-size:11px;">LTV / CAC</div>
-        <div class="kpi-value" style="font-size:38px;">2.78x</div>
-        <div class="kpi-sub red" style="font-size:11px;">Down from 3.5x (Nov '25 peak)</div>
-      </div>
-    </div>
-    <div style="display:flex; gap:14px; flex:1;">
-      <div style="flex:1; display:flex; flex-direction:column;">
-        <div class="section-label" style="margin-top:0; margin-bottom:4px;">By Product — April 2026</div>
-        <table class="data-table" style="font-size:13px;">
-          <thead><tr><th class="left">Product</th><th>CAC Ratio</th><th>Payback (mo)</th><th>LTV/CAC</th></tr></thead>
-          <tbody>
-            <tr><td class="left">Billing</td><td class="green-val">0.48x</td><td>25.0</td><td class="green-val">5.67x</td></tr>
-            <tr><td class="left">PSA</td><td class="green-val">0.28x</td><td class="red">43.2</td><td class="red">1.35x</td></tr>
-            <tr><td class="left">Payments</td><td>0.50x</td><td class="green-val">24.1</td><td>1.41x</td></tr>
-            <tr><td class="left bold">Total</td><td class="green-val">0.36x</td><td>33.4</td><td>2.78x</td></tr>
-          </tbody>
-        </table>
-        <div class="section-label" style="margin-top:10px; margin-bottom:4px;">TTM Trend (Total)</div>
-        <table class="data-table" style="font-size:11px;">
-          <thead><tr><th>Jul&nbsp;'25</th><th>Aug&nbsp;'25</th><th>Sep&nbsp;'25</th><th>Oct&nbsp;'25</th><th>Nov&nbsp;'25</th><th>Dec&nbsp;'25</th><th>Jan&nbsp;'26</th><th>Feb&nbsp;'26</th><th>Mar&nbsp;'26</th><th>Apr&nbsp;'26</th></tr></thead>
-          <tbody>
-            <tr><td>0.38x</td><td>0.38x</td><td>0.39x</td><td>0.40x</td><td>0.41x</td><td>0.38x</td><td>0.38x</td><td>0.36x</td><td>0.37x</td><td class="green-val">0.36x</td></tr>
-            <tr><td>3.30x</td><td>3.25x</td><td>3.35x</td><td>3.42x</td><td class="green-val">3.54x</td><td>3.27x</td><td>2.94x</td><td class="red">2.40x</td><td>3.09x</td><td>2.78x</td></tr>
-          </tbody>
-        </table>
-        <div class="footnote" style="margin-top:4px;">Row 1: CAC Ratio &nbsp;|&nbsp; Row 2: LTV/CAC &nbsp;|&nbsp; Source: 2. 3-Statement '26 rows 259–274</div>
-      </div>
-      <div style="flex:1; display:flex; flex-direction:column;">
-        <div class="section-label green" style="margin-top:0; margin-bottom:4px;">Commentary &amp; Trends</div>
-        <div style="font-size:12px; color:var(--white); line-height:1.75; flex:1;">
-          ▸ <strong>Overall CAC efficiency is strong</strong> — 0.36x well below the ~1x industry median. The business acquires customers at a fraction of their lifetime value.<br><br>
-          ▸ <strong>Billing drives the efficiency story</strong> — LTV/CAC 5.67x, payback ~25 months. Healthy unit economics on the company's primary growth product.<br><br>
-          ▸ <strong>PSA CAC looks low (0.28x) but is misleading</strong> — it reflects minimal S&amp;M investment in a declining product. LTV/CAC at 1.35x and compressing as the ARR base erodes. Payback at 43 months is elevated and will worsen if downsell continues.<br><br>
-          ▸ <strong>LTV/CAC declining — down from 3.54x (Nov '25) to 2.78x (Apr '26)</strong> — driven by PSA ARR erosion reducing lifetime value. Billing LTV/CAC remains strong at 5.67x. Watch for continued compression if PSA ARR decline accelerates.<br><br>
-          ▸ <strong>Payback creeping up</strong> — from 29 months (Nov '25) to 33 months now. Still acceptable but directionally the wrong trend.
+  <div class="slide-content" style="flex-direction:row; gap:14px; padding-bottom:36px;">
+    <div style="flex:1.5; display:flex; flex-direction:column; gap:6px;">
+      <div style="flex:1.1; display:flex; flex-direction:column;">
+        <div class="section-label" style="margin-top:0; margin-bottom:2px; font-size:10px;">CAC Ratio by Product — Trailing 10 Months</div>
+        <svg id="cac-ratio-svg" style="flex:1; width:100%;" viewBox="0 0 500 140" preserveAspectRatio="none"></svg>
+        <div style="display:flex; gap:14px; font-size:9px; margin-top:3px;">
+          <span style="color:#2399B5;">&#9644; Total</span>
+          <span style="color:#6EBE4F;">&#9644; Billing</span>
+          <span style="color:#FFA500;">&#9644; PSA</span>
+          <span style="color:#AECCE0;">&#9644; Payments</span>
         </div>
+      </div>
+      <div style="flex:1; display:flex; flex-direction:column; margin-top:2px;">
+        <div class="section-label green" style="margin-top:0; margin-bottom:2px; font-size:10px;">LTV / CAC Trend (Total)</div>
+        <svg id="ltv-svg" style="flex:1; width:100%;" viewBox="0 0 500 110" preserveAspectRatio="none"></svg>
+      </div>
+      <div class="footnote">Source: 2. 3-Statement '26 rows 259–274 &nbsp;|&nbsp; Industry median CAC ~1x; Rev.io 0.36x = top quartile</div>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:8px;">
+      <div>
+        <div class="section-label" style="margin-top:0; margin-bottom:4px; font-size:10px;">April 2026 — By Product</div>
+        <table class="data-table" style="font-size:12px;">
+          <thead><tr><th class="left">Product</th><th>CAC Ratio</th><th>Payback</th></tr></thead>
+          <tbody>
+            <tr><td class="left">Billing</td><td class="green-val">0.48x</td><td>25.0 mo</td></tr>
+            <tr><td class="left">PSA Total</td><td class="green-val">0.28x</td><td class="red">43.2 mo</td></tr>
+            <tr><td class="left">Payments</td><td>0.50x</td><td class="green-val">24.1 mo</td></tr>
+            <tr><td class="left bold">Total</td><td class="green-val">0.36x</td><td>33.4 mo</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="kpi-row" style="gap:8px; margin:0;">
+        <div class="kpi-box green" style="padding:8px 10px 8px 14px; flex:1;">
+          <div class="kpi-label" style="color:var(--green); font-size:9px;">CAC Ratio</div>
+          <div class="kpi-value" style="font-size:28px;">0.36x</div>
+          <div style="font-size:9px; color:var(--light-blue);">vs ~1x industry</div>
+        </div>
+        <div class="kpi-box blue" style="padding:8px 10px 8px 14px; flex:1;">
+          <div class="kpi-label" style="color:var(--light-blue); font-size:9px;">LTV / CAC</div>
+          <div class="kpi-value" style="font-size:28px;">2.78x</div>
+          <div class="kpi-sub red" style="font-size:9px;">↓ from 3.54x (Nov)</div>
+        </div>
+      </div>
+      <div style="flex:1; font-size:11.5px; color:var(--white); line-height:1.7;">
+        ▸ <strong>Overall efficiency strong</strong> — 0.36x well below ~1x median.<br><br>
+        ▸ <strong>Billing drives the story</strong> — payback ~25 months, strong unit economics.<br><br>
+        ▸ <strong>PSA CAC (0.28x) is misleading</strong> — minimal spend on a declining product. 43-month payback compressing as ARR erodes.<br><br>
+        ▸ <strong>LTV/CAC declined 3.54x → 2.78x</strong> since Nov '25 — entirely PSA-driven. Watch for continued compression.<br><br>
+        ▸ <strong>Payback creeping up</strong> — 29 mo (Nov) to 33 mo now.
       </div>
     </div>
   </div>
@@ -652,6 +652,14 @@
   };
   const chartColors = { billing: '#2399B5', psa: '#6EBE4F', payments: '#FFA500' };
 
+  const cacMonths = ["Jul'25", "Aug'25", "Sep'25", "Oct'25", "Nov'25", "Dec'25", "Jan'26", "Feb'26", "Mar'26", "Apr'26"];
+  const cacTotal   = [0.383, 0.377, 0.389, 0.396, 0.411, 0.379, 0.376, 0.358, 0.374, 0.359];
+  const cacBilling = [0.591, 0.572, 0.603, 0.59, 0.613, 0.49, 0.502, 0.484, 0.483, 0.48];
+  const cacPsa     = [0.221, 0.227, 0.233, 0.255, 0.267, 0.269, 0.258, 0.257, 0.281, 0.278];
+  const cacPmts    = [0.633, 0.646, 0.663, 0.597, 0.57, 0.642, 0.662, 0.571, 0.613, 0.498];
+  const ltvTotal   = [3.303, 3.25, 3.351, 3.416, 3.54, 3.271, 2.938, 2.402, 3.094, 2.778];
+
+
   function buildLineChart(svgId, data, color) {
     const svg = document.getElementById(svgId);
     if (!svg) return;
@@ -659,26 +667,88 @@
     const min = Math.min(...data) * 0.95;
     const max = Math.max(...data) * 1.05;
     const xStep = (W - pad*2) / (data.length - 1);
-    const pts = data.map((v, i) => ({
-      x: pad + i * xStep,
-      y: H - pad - ((v - min) / (max - min)) * (H - pad*2),
-      v
-    }));
+    const pts = data.map((v, i) => ({x: pad + i * xStep, y: H - pad - ((v - min) / (max - min)) * (H - pad*2), v}));
     const pointStr = pts.map(p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
     const circles = pts.map(p => {
-      const above = p.y > H / 2;
-      const ty = above ? p.y - 5 : p.y + 11;
+      const above = p.y > H / 2; const ty = above ? p.y - 5 : p.y + 11;
       return `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="2.5" fill="${color}"/>
               <text x="${p.x.toFixed(1)}" y="${ty.toFixed(1)}" text-anchor="middle" fill="${color}" font-size="6.5" font-family="Arial">${p.v}</text>`;
     }).join('');
-    svg.innerHTML = `
-      <defs><linearGradient id="g${svgId}" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="${color}" stop-opacity="0.22"/>
-        <stop offset="100%" stop-color="${color}" stop-opacity="0.02"/>
-      </linearGradient></defs>
+    svg.innerHTML = `<defs><linearGradient id="g${svgId}" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${color}" stop-opacity="0.22"/><stop offset="100%" stop-color="${color}" stop-opacity="0.02"/></linearGradient></defs>
       <polygon points="${pts[0].x.toFixed(1)},${H-pad} ${pointStr} ${pts[pts.length-1].x.toFixed(1)},${H-pad}" fill="url(#g${svgId})"/>
       <polyline points="${pointStr}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
       ${circles}`;
+  }
+
+  function buildCACChart() {
+    const svg = document.getElementById('cac-ratio-svg');
+    if (!svg) return;
+    const W = 500, H = 140, pl = 34, pr = 14, pt = 12, pb = 18;
+    const cw = W-pl-pr, ch = H-pt-pb, n = cacTotal.length;
+    const allV = [...cacTotal,...cacBilling,...cacPsa,...cacPmts];
+    const maxV = Math.max(...allV)*1.12, minV = 0;
+    const toX = i => pl + i*(cw/(n-1));
+    const toY = v => pt + ch - ((v-minV)/(maxV-minV))*ch;
+    let g = '';
+    // gridlines + y labels
+    [0,0.2,0.4,0.6,0.8].forEach(t => {
+      if(t>maxV) return;
+      const y=toY(t);
+      g+=`<line x1="${pl}" y1="${y.toFixed(1)}" x2="${W-pr}" y2="${y.toFixed(1)}" stroke="#1D3756" stroke-width="0.8"/>
+          <text x="${pl-3}" y="${(y+3).toFixed(1)}" text-anchor="end" fill="#AECCE0" font-size="8" font-family="Arial">${t.toFixed(1)}</text>`;
+    });
+    // x axis labels
+    cacMonths.forEach((m,i) => {
+      g+=`<text x="${toX(i).toFixed(1)}" y="${(H-3).toFixed(1)}" text-anchor="middle" fill="#AECCE0" font-size="7.5" font-family="Arial">${m}</text>`;
+    });
+    // series
+    const series=[
+      {data:cacTotal,   color:'#2399B5', w:2.5},
+      {data:cacBilling, color:'#6EBE4F', w:1.5},
+      {data:cacPsa,     color:'#FFA500', w:1.5},
+      {data:cacPmts,    color:'#AECCE0', w:1.5},
+    ];
+    series.forEach(s => {
+      const pts = s.data.map((v,i)=>`${toX(i).toFixed(1)},${toY(v).toFixed(1)}`).join(' ');
+      g+=`<polyline points="${pts}" fill="none" stroke="${s.color}" stroke-width="${s.w}" stroke-linejoin="round" stroke-linecap="round"/>`;
+      s.data.forEach((v,i) => {
+        const x=toX(i), y=toY(v);
+        g+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.5" fill="${s.color}"/>`;
+      });
+      // label last point
+      const lx=toX(n-1), ly=toY(s.data[n-1]);
+      const above = ly > pt+ch/2;
+      g+=`<text x="${(lx-2).toFixed(1)}" y="${(above?ly-5:ly+11).toFixed(1)}" text-anchor="middle" fill="${s.color}" font-size="7.5" font-family="Arial" font-weight="bold">${s.data[n-1].toFixed(2)}</text>`;
+    });
+    svg.innerHTML = g;
+  }
+
+  function buildLTVChart() {
+    const svg = document.getElementById('ltv-svg');
+    if (!svg) return;
+    const W = 500, H = 110, pl = 34, pr = 14, pt = 10, pb = 10;
+    const cw = W-pl-pr, ch = H-pt-pb, n = ltvTotal.length;
+    const maxV = Math.max(...ltvTotal)*1.12, minV = 0;
+    const toX = i => pl + i*(cw/(n-1));
+    const toY = v => pt + ch - ((v-minV)/(maxV-minV))*ch;
+    let g = '';
+    [0,1,2,3,4].forEach(t => {
+      if(t>maxV) return;
+      const y=toY(t);
+      g+=`<line x1="${pl}" y1="${y.toFixed(1)}" x2="${W-pr}" y2="${y.toFixed(1)}" stroke="#1D3756" stroke-width="0.8"/>
+          <text x="${pl-3}" y="${(y+3).toFixed(1)}" text-anchor="end" fill="#AECCE0" font-size="8" font-family="Arial">${t}x</text>`;
+    });
+    const pts = ltvTotal.map((v,i)=>`${toX(i).toFixed(1)},${toY(v).toFixed(1)}`).join(' ');
+    g+=`<defs><linearGradient id="gltv" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6EBE4F" stop-opacity="0.25"/><stop offset="100%" stop-color="#6EBE4F" stop-opacity="0.02"/></linearGradient></defs>`;
+    g+=`<polygon points="${toX(0).toFixed(1)},${(pt+ch).toFixed(1)} ${pts} ${toX(n-1).toFixed(1)},${(pt+ch).toFixed(1)}" fill="url(#gltv)"/>`;
+    g+=`<polyline points="${pts}" fill="none" stroke="#6EBE4F" stroke-width="2" stroke-linejoin="round"/>`;
+    ltvTotal.forEach((v,i) => {
+      const x=toX(i), y=toY(v);
+      const above = y > pt+ch/2;
+      g+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.5" fill="#6EBE4F"/>`;
+      g+=`<text x="${x.toFixed(1)}" y="${(above?y-5:y+11).toFixed(1)}" text-anchor="middle" fill="#6EBE4F" font-size="7.5" font-family="Arial">${v.toFixed(2)}x</text>`;
+    });
+    svg.innerHTML = g;
   }
 
   function navigate(dir) {
@@ -695,13 +765,14 @@
         buildLineChart('payments-svg', chartData.payments, chartColors.payments);
       }, 50);
     }
+    if (current === 7) {
+      setTimeout(() => { buildCACChart(); buildLTVChart(); }, 50);
+    }
   }
-
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') navigate(1);
     if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') navigate(-1);
   });
 </script>
-
 </body>
 </html>
