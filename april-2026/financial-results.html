@@ -212,12 +212,12 @@
 <div class="slide" id="slide-2">
   <div class="slide-header">
     <h1>Executive Summary</h1>
-    <div class="subtitle">April 2026 | Financial Highlights &amp; May Outlook</div>
+    <div class="subtitle">April 2026 | Financial Highlights</div>
   </div>
   <div class="divider"></div>
-  <div class="slide-content" style="flex-direction:row; gap:16px; padding-bottom:36px;">
-    <div style="flex:1.1; display:flex; flex-direction:column; gap:10px;">
-      <div class="kpi-row" style="gap:10px;">
+  <div class="slide-content" style="padding-bottom:36px;">
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div class="kpi-row" style="margin-bottom:8px;">
         <div class="kpi-box" style="padding:12px 12px 12px 16px;">
           <div class="kpi-label" style="font-size:11px">Revenue</div>
           <div class="kpi-value" style="font-size:38px; margin:4px 0">$3.2M</div>
@@ -249,18 +249,7 @@
         </div>
       </div>
     </div>
-    <div style="flex:1; display:flex; flex-direction:column;">
-      <div style="font-family:'Arial Black',Arial; font-size:12px; color:var(--teal); font-weight:900; text-transform:uppercase; margin-bottom:4px;">Revenue Outlook — May 2026</div>
-      <div style="height:2px; background:var(--teal); margin-bottom:8px;"></div>
-      <div class="outlook-box" style="flex:1; border-color:var(--teal);">
-        <div class="outlook-content" style="font-size:13px; line-height:1.8;">
-          ▸ <strong>Billing:</strong> +$26K MoM (preliminary). Underlying growth recovering post Spectrum credit.<br><br>
-          ▸ <strong>PSA Legacy:</strong> -$13K MoM (continued decline). PSA Web: +$18K (accelerating).<br><br>
-          ▸ <strong>Payments:</strong> Expect ~$160–170K/month normalized. Paya CC volume watch — $3.2M past-due segment elevated, ACH pulls may continue to fail.<br><br>
-          ▸ <strong>MRR ex-Payments tracking ~$3.0M</strong> for May (preliminary).
-        </div>
-      </div>
-    </div>
+  </div>
   </div>
   <div class="slide-footer">
     <span>Rev.io | Financial Results | April 2026</span>
@@ -300,7 +289,21 @@
       <div class="kpi-box" style="padding:10px 12px 10px 16px;">
         <div class="kpi-label" style="font-size:10px; margin-bottom:4px;">Revenue</div>
         <div style="font-size:12px; color:var(--light-blue); line-height:1.6;">
-          Miss of $186K — PSA Legacy (-$46K), PSA Web (-$92K), Billing (-$32K Spectrum credit), Payments (-$36K rolloff)
+          Miss of $186K vs budget:<br>
+          ▸ PSA Legacy -$46K — churn, credits &amp; seat reductions<br>
+          ▸ PSA Web -$92K — lagging new sales &amp; cancellations<br>
+          ▸ Billing -$32K — Spectrum credit already reflected<br>
+          ▸ Payments -$36K — $40K prior month adj + $10K past-due residuals, volume decline $12K offset by growth
+        </div>
+      </div>
+      <div class="outlook-box red-border" style="padding:10px 12px 10px 16px; flex:1;">
+        <div class="outlook-title" style="font-size:11px;">COST WATCH ITEMS</div>
+        <div class="outlook-divider"></div>
+        <div class="outlook-content" style="font-size:11.5px; line-height:1.6;">
+          ▸ <strong style="color:var(--red)">Hosting:</strong> Vervint + Acronis = $480K (+$29K over). YTD +$151K — needs budget revision. Acronis owes us credit.<br><br>
+          ▸ <strong style="color:var(--red)">R&amp;D Contractors:</strong> Softserve $42K open item with Ray — resolve before May close.<br><br>
+          ▸ <strong style="color:var(--red)">Channel / Acronis ramp:</strong> +$27K over budget — confirm if recurring; update budget.<br><br>
+          ▸ <strong style="color:var(--red)">Marketing tradeshows:</strong> +$58K over April budget.
         </div>
       </div>
       <div class="outlook-box green" style="padding:10px 12px 10px 16px; flex:1;">
@@ -311,16 +314,6 @@
           ▸ Revenue miss primary driver — spend $74K favorable. People savings ($340K under) absorbing overruns.<br><br>
           ▸ Watch: Softserve ($42K/mo), Acronis ramp, tradeshow wind-down in Q3.<br><br>
           ▸ <strong>Cash:</strong> $3.4M at April 30 (-$347K MoM). Lower collections; AR $1.2M. No credit issues.
-        </div>
-      </div>
-      <div class="outlook-box red-border" style="padding:10px 12px 10px 16px; flex:1;">
-        <div class="outlook-title" style="font-size:11px;">COST WATCH ITEMS</div>
-        <div class="outlook-divider"></div>
-        <div class="outlook-content" style="font-size:11.5px; line-height:1.6;">
-          ▸ <strong style="color:var(--red)">Hosting:</strong> Vervint + Acronis = $480K (+$29K over). YTD +$151K — needs budget revision.<br><br>
-          ▸ <strong style="color:var(--red)">R&amp;D Contractors:</strong> Softserve $42K open item with Ray — resolve before May close.<br><br>
-          ▸ <strong style="color:var(--red)">Channel / Acronis ramp:</strong> +$27K over budget — confirm if recurring; update budget.<br><br>
-          ▸ <strong style="color:var(--red)">Marketing tradeshows:</strong> +$58K over April budget — validate ROI before next cycle.
         </div>
       </div>
     </div>
@@ -438,8 +431,6 @@
         <div style="font-size:11.5px; line-height:1.65; color:var(--white); flex:1;">
           ▸ <strong>Billing</strong>: Only ARR-positive product — net retention &gt;100%, GRR improving to 91%+. New ARR near zero in April — sales pipeline problem, not retention.<br>
           ▸ <strong>PSA</strong>: Downsell nearly tripled in 3 years. Churn improving but ARR declining faster. Net retention ~86% — mid-80s = compressing ARR regardless of new sales.<br>
-          ▸ <strong>Logo retention ~97-98%</strong>: Customers are staying. This is a revenue-per-customer problem (downsell), not a departure problem.<br>
-          ▸ <strong>Priority action</strong>: Understand April downsell spike drivers before May close. If trend vs. one-time, PSA compression accelerates.
         </div>
       </div>
     </div>
