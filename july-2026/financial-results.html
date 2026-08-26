@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rev.io | Financial Results | July 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy:    #0d1f3c;
+    --navy2:   #0a1628;
+    --blue:    #22d3ee;
+    --blue2:   #67e8f9;
+    --green:   #4ade80;
+    --red:     #f87171;
+    --amber:   #f97316;
+    --gray1:   #0f2744;
+    --gray2:   #142035;
+    --gray3:   #1e3a5f;
+    --gray4:   #94a3b8;
+    --gray5:   #94a3b8;
+    --gray6:   #cbd5e1;
+    --text:    #ffffff;
+    --slide-h: calc(100vh - 60px);
+  }
+  html, body { height: 100%; width: 100%; font-family: 'Inter', system-ui, -apple-system, sans-serif; font-size: 13px; background: var(--navy2); color: var(--text); overflow: hidden; }
+  .deck { width: 100%; height: 100%; position: relative; }
+  .slide { display: none; width: 100%; height: var(--slide-h); overflow-y: auto; background: var(--navy); position: relative; }
+  .slide:target { display: flex; flex-direction: column; }
+  body:not(:has(:target)) #s1 { display: flex; flex-direction: column; }
+  .slide-nav-strip { display: flex; justify-content: space-between; align-items: center; padding: 6px 24px; background: #071525; border-top: 1px solid #1e3a5f; flex-shrink: 0; }
+  .slide-nav-strip a { color: #22d3ee; font-size: 11px; font-weight: 700; text-decoration: none; padding: 5px 14px; border: 1px solid #22d3ee; border-radius: 3px; letter-spacing: .04em; }
+  .slide-nav-strip a:hover { background: #22d3ee; color: #0d1f3c; }
+  .slide-nav-strip a.disabled { color: #1e3a5f; border-color: #1e3a5f; pointer-events: none; }
+  .slide-nav-strip .sn-info { color: #94a3b8; font-size: 10px; text-align: center; }
+  .slide-header { background: var(--navy); color: #fff; padding: 14px 32px 12px; flex-shrink: 0; display: flex; align-items: baseline; gap: 16px; border-bottom: 2px solid var(--blue); }
+  .slide-header .brand { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #94a3b8; text-transform: uppercase; }
+  .slide-header .slide-title { font-size: 22px; font-weight: 800; color: #fff; }
+  .slide-header .slide-sub { font-size: 11px; color: #94a3b8; margin-left: auto; }
+  .badge { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 3px; letter-spacing: .5px; background: rgba(34,211,238,0.15); color: var(--blue); }
+  .badge.supp { background: rgba(249,115,22,0.2); color: #f97316; }
+  .slide-body { flex: 1; padding: 20px 32px 16px; overflow-y: auto; }
+  .slide-footer { background: var(--navy2); color: #64748b; font-size: 10px; padding: 6px 32px; flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; letter-spacing: .3px; }
+  .slide-footer .conf { color: #ef4444; font-weight: 600; letter-spacing: 1px; }
+  .cover-body { flex: 1; background: linear-gradient(145deg, #0f172a 0%, #1e3a5f 60%, #0f172a 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: #fff; padding: 40px; text-align: center; }
+  .cover-logo { font-size: 11px; font-weight: 700; letter-spacing: 4px; color: #94a3b8; margin-bottom: 12px; }
+  .cover-title { font-size: 42px; font-weight: 800; color: #fff; line-height: 1.1; }
+  .cover-period { font-size: 22px; font-weight: 300; color: #7dd3fc; margin-top: 8px; }
+  .cover-audience { margin-top: 24px; font-size: 12px; font-weight: 500; letter-spacing: 2px; color: #94a3b8; text-transform: uppercase; }
+  .cover-divider { width: 60px; height: 2px; background: var(--blue); margin: 20px auto; }
+  .cover-meta { font-size: 11px; color: #64748b; margin-top: 12px; }
+  .kpi-row { display: flex; gap: 16px; margin-bottom: 16px; }
+  .kpi-card { flex: 1; background: var(--gray2); border: 1px solid var(--gray3); border-radius: 8px; padding: 16px 20px; }
+  .kpi-card.blue-accent { border-left: 4px solid var(--blue2); }
+  .kpi-card.green-accent { border-left: 4px solid #16a34a; }
+  .kpi-card.amber-accent { border-left: 4px solid #f59e0b; }
+  .kpi-card.red-accent { border-left: 4px solid #ef4444; }
+  .kpi-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--blue); margin-bottom: 6px; }
+  .kpi-value { font-size: 34px; font-weight: 800; color: #ffffff; line-height: 1; }
+  .kpi-sub1 { font-size: 11px; color: var(--gray5); margin-top: 6px; }
+  .kpi-sub2 { font-size: 11px; color: var(--gray5); margin-top: 3px; }
+  .kpi-sub1 .pos { color: var(--green); font-weight: 600; }
+  .kpi-sub1 .neg { color: var(--red); font-weight: 600; }
+  .kpi-sub2 .pos { color: var(--green); font-weight: 600; }
+  .kpi-sub2 .neg { color: var(--red); font-weight: 600; }
+  .section-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gray4); margin-bottom: 8px; }
+  .tbl-wrap { overflow-x: auto; margin-bottom: 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th { background: var(--navy); color: #e2e8f0; padding: 7px 10px; text-align: right; font-size: 10px; font-weight: 600; letter-spacing: .3px; white-space: nowrap; }
+  th:first-child { text-align: left; }
+  td { padding: 6px 10px; text-align: right; border-bottom: 1px solid var(--gray3); white-space: nowrap; }
+  td:first-child { text-align: left; font-weight: 500; }
+  tr:nth-child(even) td { background: var(--gray1); }
+  tr:hover td { background: #1a3355; }
+  .tr-subtotal td { background: var(--gray2) !important; font-weight: 700; border-top: 1px solid var(--gray3); }
+  .tr-total td { background: #061020 !important; color: #e2e8f0; font-weight: 700; }
+  .tr-total td:first-child { color: #fff; }
+  .tr-section td { background: #0a1f38 !important; font-weight: 700; font-size: 11px; color: var(--blue); padding: 4px 10px; letter-spacing: .5px; }
+  .tr-margin td { font-style: italic; color: var(--gray5); font-size: 11px; }
+  .th-group { background: #1e3a5f !important; text-align: center !important; font-size: 10px; }
+  .td-indent { padding-left: 22px !important; font-weight: 400 !important; color: var(--gray6) !important; }
+  .pos { color: var(--green); font-weight: 600; }
+  .neg { color: var(--red); font-weight: 600; }
+  .neu { color: var(--gray5); }
+  .bold { font-weight: 700 !important; }
+  .arr-row { display: flex; gap: 14px; margin-bottom: 16px; }
+  .arr-card { flex: 1; background: var(--gray2); border: 1px solid var(--gray3); border-radius: 8px; padding: 14px 16px; }
+  .arr-card .arr-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--blue); margin-bottom: 6px; }
+  .arr-card .arr-value { font-size: 24px; font-weight: 800; color: #ffffff; }
+  .arr-card .arr-sub { font-size: 11px; color: var(--gray5); margin-top: 4px; }
+  .score-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 4px; }
+  .score-card { background: var(--gray2); border: 1px solid var(--gray3); border-radius: 10px; padding: 22px 24px; text-align: center; position: relative; }
+  .score-card .sc-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--blue); margin-bottom: 10px; }
+  .score-card .sc-value { font-size: 40px; font-weight: 800; color: #ffffff; line-height: 1; }
+  .score-card .sc-period { font-size: 10px; color: var(--gray4); margin-top: 6px; }
+  .score-card .sc-goal { font-size: 11px; color: var(--gray5); margin-top: 8px; }
+  .score-card .sc-goal .goal-val { font-weight: 600; color: #cbd5e1; }
+  .score-card.on-track { border-bottom: 3px solid var(--green); }
+  .score-card.off-track { border-bottom: 3px solid var(--red); }
+  .score-card.mid-track { border-bottom: 3px solid var(--amber); }
+  .score-card .trend-up { font-size: 11px; color: var(--green); font-weight: 600; }
+  .score-card .trend-dn { font-size: 11px; color: var(--red); font-weight: 600; }
+  .chip { display: inline-block; padding: 1px 7px; border-radius: 99px; font-size: 10px; font-weight: 600; vertical-align: middle; margin-left: 4px; }
+  .chip.green { background: rgba(74,222,128,0.2); color: #4ade80; }
+  .chip.red { background: rgba(248,113,113,0.2); color: #f87171; }
+  .chip.amber { background: rgba(249,115,22,0.2); color: #f97316; }
+  .chip.blue { background: rgba(34,211,238,0.2); color: #22d3ee; }
+  .note-row { font-size: 10px; color: var(--gray5); padding: 6px 4px; border-top: 1px solid var(--gray3); font-style: italic; }
+  .chart-wrap { position: relative; width: 100%; }
+  .info-bar { padding: 8px 14px; background: rgba(34,211,238,0.07); border-left: 3px solid var(--blue); border-radius: 4px; font-size: 11px; color: var(--gray6); margin-bottom: 12px; }
+  .info-bar.warn { background: rgba(249,115,22,0.07); border-color: var(--amber); }
+  @media (max-width: 900px) { .score-grid { grid-template-columns: 1fr 1fr; } .kpi-row { flex-wrap: wrap; } .arr-row { flex-wrap: wrap; } }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"></script>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<!-- ══════════════ SLIDE 1: COVER ══════════════ -->
+<div class="slide" id="s1">
+  <div class="cover-body">
+    <div class="cover-logo">REV.IO</div>
+    <div class="cover-title">Financial Results</div>
+    <div class="cover-period">July 2026</div>
+    <div class="cover-divider"></div>
+    <div class="cover-audience">Senior Leadership Review</div>
+    <div class="cover-meta">Prepared by Finance &nbsp;|&nbsp; Close date: August 2026</div>
+    <div style="margin-top:40px; font-size:10px; letter-spacing:2px; color:#ef4444; font-weight:600">CONFIDENTIAL</div>
+  </div>
+  <div class="slide-footer"><span>Rev.io | Financial Results | July 2026</span><span class="conf">CONFIDENTIAL</span></div>
+  <div class="slide-nav-strip"><a class="disabled">&#8592; Prev</a><span class="sn-info">1 / 13<br>Cover</span><a href="#s2">Next &#8594;</a></div>
+</div>
+
+<!-- ══════════════ SLIDE 2: EXECUTIVE SUMMARY ══════════════ -->
+<div class="slide" id="s2">
+  <div class="slide-header"><span class="brand">Rev.io</span><span class="slide-title">Executive Summary</span><span class="slide-sub">July 2026 | Financial Highlights</span></div>
+  <div class="slide-body">
+    <!-- ── July KPI Cards ── -->
+    <div class="kpi-row" style="margin-bottom:12px">
+      <div class="kpi-card blue-accent">
+        <div class="kpi-label">Net Revenue — July</div>
+        <div class="kpi-value">$3.2M</div>
+        <div class="kpi-sub1">Actual $3,172K &nbsp;|&nbsp; Budget $3,513K</div>
+        <div class="kpi-sub2"><span class="neg">▼ $341K vs Budget (-9.7%)</span> &nbsp;|&nbsp; <span class="pos">▲ $94K vs June</span></div>
+      </div>
+      <div class="kpi-card green-accent">
+        <div class="kpi-label">EBITDA — July</div>
+        <div class="kpi-value">24.2%</div>
+        <div class="kpi-sub1">Actual $767K &nbsp;|&nbsp; Budget $842K</div>
+        <div class="kpi-sub2"><span class="neg">▼ $75K vs Budget</span> &nbsp;|&nbsp; <span class="pos">▲ $263K vs June (+7.8pp)</span></div>
+      </div>
+      <div class="kpi-card amber-accent">
+        <div class="kpi-label">Cash &amp; Headcount</div>
+        <div class="kpi-value">$4.3M</div>
+        <div class="kpi-sub1"><span class="neg">▼ $275K MoM</span> — SVB debt paydown &nbsp;|&nbsp; <span class="neg">-$79K vs budget</span></div>
+        <div class="kpi-sub2">HC <strong style="color:#fff">145</strong> &nbsp;·&nbsp; -24 vs budget &nbsp;·&nbsp; -2 MoM &nbsp;·&nbsp; -23 YoY (-14%)</div>
+      </div>
+      <div class="kpi-card red-accent">
+        <div class="kpi-label">Retention (TTM)</div>
+        <div style="display:flex; gap:16px; align-items:flex-end; margin-top:6px; margin-bottom:4px">
+          <div>
+            <div style="font-size:10px; color:var(--gray5); font-weight:600; letter-spacing:.5px; margin-bottom:2px">GRR</div>
+            <div style="font-size:28px; font-weight:800; color:var(--red); line-height:1">86.3%</div>
+          </div>
+          <div>
+            <div style="font-size:10px; color:var(--gray5); font-weight:600; letter-spacing:.5px; margin-bottom:2px">NRR</div>
+            <div style="font-size:28px; font-weight:800; color:var(--red); line-height:1">95.4%</div>
+          </div>
+        </div>
+        <div class="kpi-sub1">Goal: GRR 90% / NRR 105%</div>
+        <div class="kpi-sub2"><span class="neg">▼ GRR -1.3pp vs Jul '25</span> &nbsp;|&nbsp; <span class="pos">▲ NRR +0.8pp MoM</span></div>
+      </div>
+    </div>
+
+    <!-- ── YTD Comparison Block ── -->
+    <div style="background:var(--gray2); border:1px solid var(--gray3); border-radius:8px; overflow:hidden">
+      <div style="background:#0a1f38; padding:8px 16px; border-bottom:1px solid var(--gray3)">
+        <span style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:var(--blue)">YTD Jan–Jul 2026 — vs Budget &amp; vs Prior Year</span>
+      </div>
+      <table style="width:100%; border-collapse:collapse; font-size:12px">
+        <thead>
+          <tr>
+            <th style="background:transparent; text-align:left; padding:8px 16px; font-size:10px; color:var(--gray4); font-weight:600; width:22%"></th>
+            <th style="background:transparent; text-align:right; padding:8px 12px; font-size:10px; color:var(--gray4); font-weight:600">YTD Actual</th>
+            <th style="background:transparent; text-align:right; padding:8px 12px; font-size:10px; color:var(--gray4); font-weight:600">vs 2026 Budget $</th>
+            <th style="background:transparent; text-align:right; padding:8px 12px; font-size:10px; color:var(--gray4); font-weight:600">vs 2026 Budget %</th>
+            <th style="background:transparent; text-align:right; padding:8px 12px; font-size:10px; color:var(--gray4); font-weight:600">vs 2025 Actual $</th>
+            <th style="background:transparent; text-align:right; padding:8px 16px; font-size:10px; color:var(--gray4); font-weight:600">vs 2025 Actual %</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:8px 16px; font-weight:600; color:var(--gray6); border-bottom:1px solid var(--gray3)">Net Revenue</td>
+            <td style="padding:8px 12px; text-align:right; border-bottom:1px solid var(--gray3)">$22,308K</td>
+            <td style="padding:8px 12px; text-align:right; border-bottom:1px solid var(--gray3)" class="neg">-$1,307K</td>
+            <td style="padding:8px 12px; text-align:right; border-bottom:1px solid var(--gray3)" class="neg">-5.5%</td>
+            <td style="padding:8px 12px; text-align:right; border-bottom:1px solid var(--gray3)" class="pos">+$147K</td>
+            <td style="padding:8px 16px; text-align:right; border-bottom:1px solid var(--gray3)" class="pos">+0.7%</td>
+          </tr>
+          <tr style="background:var(--gray1)">
+            <td style="padding:8px 16px; font-weight:600; color:var(--gray6); border-bottom:1px solid var(--gray3)">Gross Profit</td>
+            <td style="padding:8px 12px; text-align:right; border-bottom:1px solid var(--gray3)">$16,052K</td>
+            <td style="padding:8px 12px; text-align:right; border-bottom:1px solid var(--gray3)" class="neg">-$806K</td>
+            <td style="padding:8px 12px; text-align:right; border-bottom:1px solid var(--gray3)" class="neg">-4.8%</td>
+            <td style="padding:8px 12px; text-align:right; border-bottom:1px solid var(--gray3)" class="neg">-$115K</td>
+            <td style="padding:8px 16px; text-align:right; border-bottom:1px solid var(--gray3)" class="neg">-0.7%</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 16px; padding-left:28px; font-style:italic; color:var(--gray5); border-bottom:1px solid var(--gray3); font-size:11px">Gross Margin %</td>
+            <td style="padding:8px 12px; text-align:right; border-bottom:1px solid var(--gray3); font-style:italic; color:var(--gray5); font-size:11px">72.0%</td>
+            <td style="padding:8px 12px; text-align:right; border-bottom:1px solid var(--gray3)" class="pos" style="font-style:italic; font-size:11px">+0.6pp</td>
+            <td style="padding:8px 12px; text-align:right; border-bottom:1px solid var(--gray3); color:var(--gray5); font-size:11px">—</td>
+            <td style="padding:8px 12px; text-align:right; border-bottom:1px solid var(--gray3)" class="neg" style="font-size:11px">-1.0pp</td>
+            <td style="padding:8px 16px; text-align:right; border-bottom:1px solid var(--gray3); color:var(--gray5); font-size:11px">—</td>
+          </tr>
+          <tr style="background:var(--gray1)">
+            <td style="padding:8px 16px; font-weight:700; color:#fff; border-bottom:1px solid var(--gray3)">EBITDA</td>
+            <td style="padding:8px 12px; text-align:right; border-bottom:1px solid var(--gray3); font-weight:700">$4,525K</td>
+            <td style="padding:8px 12px; text-align:right; border-bottom:1px solid var(--gray3); font-weight:700" class="pos">+$128K</td>
+            <td style="padding:8px 12px; text-align:right; border-bottom:1px solid var(--gray3); font-weight:700" class="pos">+2.9%</td>
+            <td style="padding:8px 12px; text-align:right; border-bottom:1px solid var(--gray3); font-weight:700" class="neg">-$301K</td>
+            <td style="padding:8px 16px; text-align:right; border-bottom:1px solid var(--gray3); font-weight:700" class="neg">-6.2%</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 16px; padding-left:28px; font-style:italic; color:var(--gray5); font-size:11px">EBITDA Margin %</td>
+            <td style="padding:8px 12px; text-align:right; font-style:italic; color:var(--gray5); font-size:11px">20.3%</td>
+            <td style="padding:8px 12px; text-align:right;" class="pos" style="font-size:11px">+1.7pp</td>
+            <td style="padding:8px 12px; text-align:right; color:var(--gray5); font-size:11px">—</td>
+            <td style="padding:8px 12px; text-align:right;" class="neg" style="font-size:11px">-1.5pp</td>
+            <td style="padding:8px 16px; text-align:right; color:var(--gray5); font-size:11px">—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ── August Outlook ── -->
+    <div style="background:rgba(249,115,22,0.08); border:1px solid rgba(249,115,22,0.28); border-radius:8px; padding:10px 16px; margin-top:10px">
+      <div style="display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:5px">
+        <span style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--amber)">August Outlook — MRR Tracking</span>
+        <span style="font-size:13px; color:#fff; font-weight:700">$3.0M</span>
+        <span style="font-size:10px; color:var(--green)">+$54K MoM</span>
+        <span style="font-size:10px; color:var(--red)">-$229K vs budget</span>
+        <span style="font-size:10px; color:var(--gray4)">YTD Jan–Aug: $23,925K (-$1,388K vs budget)</span>
+      </div>
+      <div style="font-size:10px; color:var(--gray5); line-height:1.6">
+        Billing &amp; Precision <span style="color:var(--green); font-weight:600">+$30K</span> · Odin <span style="color:var(--green); font-weight:600">+$4K</span> → Billing grand total <span style="color:var(--green); font-weight:600">+$34K</span> &nbsp;|&nbsp; PSA Web <span style="color:var(--green); font-weight:600">+$25K</span> (new deals + Legacy conversions) · PSA Legacy <span style="color:var(--red); font-weight:600">-$10K</span> (continuing contraction) → net PSA &amp; Web <span style="color:var(--green); font-weight:600">+$16K</span> &nbsp;|&nbsp; Cyber Protect <span style="color:var(--green); font-weight:600">+$4K</span>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Rev.io | Financial Results | July 2026 | Prepared by Finance | Close date: August 2026</span><span class="conf">CONFIDENTIAL</span></div>
+  <div class="slide-nav-strip"><a href="#s1">&#8592; Prev</a><span class="sn-info">2 / 13<br>Executive Summary</span><a href="#s3">Next &#8594;</a></div>
+</div>
+
+<!-- ══════════════ SLIDE 3: P&L SUMMARY ══════════════ -->
+<div class="slide" id="s3">
+  <div class="slide-header"><span class="brand">Rev.io</span><span class="slide-title">P&amp;L Summary</span><span class="slide-sub">July 2026 | Actuals vs. Budget vs. YTD</span></div>
+  <div class="slide-body">
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th class="th-group" colspan="4">JULY 2026</th>
+            <th class="th-group" colspan="2">VS JUNE</th>
+            <th class="th-group" colspan="4">YTD JAN–JUL</th>
+          </tr>
+          <tr>
+            <th></th>
+            <th>Actual</th><th>Budget</th><th>Var $</th><th>Var %</th>
+            <th>Jun Actual</th><th>MoM Δ</th>
+            <th>YTD Actual</th><th>YTD Budget</th><th>YTD Var $</th><th>YTD Var %</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Revenue</td>
+            <td class="neg">$3,172K</td><td>$3,513K</td>
+            <td class="neg">-$341K</td><td class="neg">-9.7%</td>
+            <td>$3,078K</td><td class="pos">+$94K</td>
+            <td>$22,308K</td><td>$23,615K</td>
+            <td class="neg">-$1,307K</td><td class="neg">-5.5%</td>
+          </tr>
+          <tr>
+            <td>Cost of Revenue</td>
+            <td class="pos">$908K</td><td>$1,000K</td>
+            <td class="pos">-$92K</td><td class="pos">-9.2%</td>
+            <td>$906K</td><td class="neg">+$2K</td>
+            <td>$6,256K</td><td>$6,757K</td>
+            <td class="pos">-$501K</td><td class="pos">-7.4%</td>
+          </tr>
+          <tr class="tr-subtotal">
+            <td>Gross Profit</td>
+            <td class="neg">$2,264K</td><td>$2,513K</td>
+            <td class="neg">-$249K</td><td class="neg">-9.9%</td>
+            <td>$2,172K</td><td class="pos">+$92K</td>
+            <td>$16,052K</td><td>$16,858K</td>
+            <td class="neg">-$806K</td><td class="neg">-4.8%</td>
+          </tr>
+          <tr class="tr-margin">
+            <td style="padding-left:20px">Gross Margin %</td>
+            <td class="neg bold">71.4%</td><td>71.5%</td>
+            <td class="neg">-0.1pp</td><td>—</td>
+            <td>70.6%</td><td class="pos">+0.8pp</td>
+            <td class="pos bold">72.0%</td><td>71.4%</td>
+            <td class="pos">+0.6pp</td><td>—</td>
+          </tr>
+          <tr>
+            <td>Operating Expenses</td>
+            <td class="pos">$1,498K</td><td>$1,672K</td>
+            <td class="pos">-$174K</td><td class="pos">-10.4%</td>
+            <td>$1,669K</td><td class="pos">-$171K</td>
+            <td>$11,528K</td><td>$12,461K</td>
+            <td class="pos">-$933K</td><td class="pos">-7.5%</td>
+          </tr>
+          <tr class="tr-total">
+            <td>EBITDA</td>
+            <td class="pos">$767K</td><td>$842K</td>
+            <td class="neg">-$75K</td><td class="neg">-8.9%</td>
+            <td>$504K</td><td class="pos">+$263K</td>
+            <td>$4,525K</td><td>$4,397K</td>
+            <td class="pos">+$128K</td><td class="pos">+2.9%</td>
+          </tr>
+          <tr class="tr-margin">
+            <td style="padding-left:20px">EBITDA Margin %</td>
+            <td class="pos bold">24.2%</td><td>24.0%</td>
+            <td class="pos">+0.2pp</td><td>—</td>
+            <td>16.4%</td><td class="pos">+7.8pp</td>
+            <td class="pos bold">20.3%</td><td>18.6%</td>
+            <td class="pos">+1.7pp</td><td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:14px; display:flex; flex-direction:column; gap:8px">
+      <div style="display:flex; align-items:flex-start; gap:12px; padding:10px 14px; background:rgba(74,222,128,0.08); border-left:3px solid var(--green); border-radius:4px">
+        <span style="color:var(--green); font-size:13px; font-weight:700; flex-shrink:0">▲</span>
+        <ul style="font-size:12px; color:var(--gray6); line-height:1.7; margin:0; padding-left:2px; list-style:none">
+          <li><strong style="color:#fff">Best EBITDA month of 2026:</strong> $767K (24.2%)</li>
+          <li>+$263K and +7.8pp vs June — trade show spend did not repeat</li>
+          <li>GM 71.4%, +0.8pp vs June | Every cost line favorable vs budget</li>
+        </ul>
+      </div>
+      <div style="display:flex; align-items:flex-start; gap:12px; padding:10px 14px; background:rgba(249,115,22,0.07); border-left:3px solid var(--amber); border-radius:4px">
+        <span style="color:var(--amber); font-size:13px; font-weight:700; flex-shrink:0">▶</span>
+        <ul style="font-size:12px; color:var(--gray6); line-height:1.7; margin:0; padding-left:2px; list-style:none">
+          <li><strong style="color:#fff">YTD EBITDA +$128K vs 2026 budget</strong> — entirely labor-cost driven (HC 24 below plan)</li>
+          <li>Payments +$27K (+2.25%) YTD vs prior year</li>
+          <li>Revenue holding flat despite PSA contraction — Billing and Payments absorbing the loss</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Rev.io | Financial Results | July 2026 | Prepared by Finance | Close date: August 2026</span><span class="conf">CONFIDENTIAL</span></div>
+  <div class="slide-nav-strip"><a href="#s2">&#8592; Prev</a><span class="sn-info">3 / 13<br>P&amp;L Summary</span><a href="#s9">Next &#8594;</a></div>
+</div>
+
+<!-- ══════════════ SLIDE 9: EXPENSE SUMMARY ══════════════ -->
+<div class="slide" id="s9">
+  <div class="slide-header"><span class="brand">Rev.io</span><span class="slide-title">Expense Summary</span><span class="slide-sub">July 2026 | Actuals vs. Budget by Cost Center &nbsp;<span class="badge supp">SUPPLEMENTAL</span></span></div>
+  <div class="slide-body">
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Cost Center</th>
+            <th class="th-group" colspan="2">JULY 2026</th>
+            <th class="th-group" colspan="2">YTD JAN–JUL</th>
+            <th>vs June</th>
+          </tr>
+          <tr>
+            <th></th>
+            <th>Actual</th><th>vs Bgt $</th>
+            <th>Actual</th><th>Var $</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Infrastructure &amp; IT</td>
+            <td class="neg">$507K</td><td class="neg">+$50K</td>
+            <td class="neg">$3,387K</td><td class="neg">+$300K</td>
+            <td class="pos">-$15K</td>
+          </tr>
+          <tr>
+            <td>Client Success</td>
+            <td>$168K</td><td class="pos">-$33K</td>
+            <td>$1,168K</td><td class="pos">-$197K</td>
+            <td class="neu">-$1K</td>
+          </tr>
+          <tr>
+            <td>Onboarding</td>
+            <td>$224K</td><td class="pos">-$78K</td>
+            <td>$1,660K</td><td class="pos">-$369K</td>
+            <td class="neg">+$10K</td>
+          </tr>
+          <tr>
+            <td>Direct Sales</td>
+            <td>$275K</td><td class="pos">-$59K</td>
+            <td>$1,887K</td><td class="pos">-$263K</td>
+            <td class="neg">+$13K</td>
+          </tr>
+          <tr>
+            <td>Channel</td>
+            <td class="neg">$79K</td><td class="neg">+$21K</td>
+            <td class="neg">$461K</td><td class="neg">+$68K</td>
+            <td class="pos">-$2K</td>
+          </tr>
+          <tr>
+            <td>Marketing</td>
+            <td>$133K</td><td class="pos">-$26K</td>
+            <td>$1,318K</td><td class="pos">-$96K</td>
+            <td class="pos">-$116K</td>
+          </tr>
+          <tr>
+            <td>Product Management</td>
+            <td class="neg">$177K</td><td class="neg">+$10K</td>
+            <td>$1,327K</td><td class="pos">-$117K</td>
+            <td class="pos">-$14K</td>
+          </tr>
+          <tr>
+            <td>AI</td>
+            <td>$99K</td><td class="pos">-$45K</td>
+            <td>$627K</td><td class="pos">-$362K</td>
+            <td class="pos">-$8K</td>
+          </tr>
+          <tr>
+            <td>Engineering (incl. Prompt)</td>
+            <td>$459K</td><td class="pos">-$9K</td>
+            <td>$3,551K</td><td class="pos">-$143K</td>
+            <td class="neg">+$3K</td>
+          </tr>
+          <tr>
+            <td>HR</td>
+            <td class="neg">$49K</td><td class="neg">+$8K</td>
+            <td>$294K</td><td class="pos">-$45K</td>
+            <td class="neg">+$6K</td>
+          </tr>
+          <tr>
+            <td>Finance &amp; G&amp;A</td>
+            <td>$237K</td><td class="pos">-$106K</td>
+            <td>$2,117K</td><td class="pos">-$214K</td>
+            <td class="pos">-$44K</td>
+          </tr>
+          <tr class="tr-total">
+            <td>Total COGS + OpEx</td>
+            <td class="pos">$2,408K</td><td class="pos">-$267K</td>
+            <td class="pos">$17,797K</td><td class="pos">-$1,438K</td>
+            <td class="pos">-$169K</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:12px; display:flex; flex-direction:column; gap:7px">
+      <div style="font-size:12px; color:var(--gray6); padding:9px 14px; background:rgba(248,113,113,0.08); border-left:3px solid var(--red); border-radius:4px; line-height:1.5">
+        <strong style="color:#fff">⚠ Watch (over budget):</strong> Infrastructure &amp; IT +$50K Jul / +$300K YTD (Vervint Hosting overrun) &nbsp;·&nbsp; Channel +$21K (Acronis — recurring misbudget) &nbsp;·&nbsp; HR +$8K (Fragomen immigration fees)
+      </div>
+      <div style="font-size:12px; color:var(--gray6); padding:9px 14px; background:rgba(74,222,128,0.08); border-left:3px solid var(--green); border-radius:4px; line-height:1.5">
+        <strong style="color:#fff">✅ Favorable:</strong> Marketing -$116K vs June (trade shows did not repeat — this is the primary MoM EBITDA driver) &nbsp;·&nbsp; AI -$45K Jul / -$362K YTD (62% of budget, largest absolute savings) &nbsp;·&nbsp; Finance &amp; G&amp;A -$44K MoM
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Rev.io | Financial Results | July 2026 | Prepared by Finance | Close date: August 2026</span><span class="conf">CONFIDENTIAL</span></div>
+  <div class="slide-nav-strip"><a href="#s3">&#8592; Prev</a><span class="sn-info">4 / 13<br>Expense Summary</span><a href="#s4">Next &#8594;</a></div>
+</div>
+
+<!-- ══════════════ SLIDE 4: REVENUE BY STREAM ══════════════ -->
+<div class="slide" id="s4">
+  <div class="slide-header"><span class="brand">Rev.io</span><span class="slide-title">MRR by Stream</span><span class="slide-sub">July 2026 | Billing · PSA · Resale</span></div>
+  <div class="slide-body">
+    <div class="tbl-wrap">
+      <table style="font-size:12px">
+        <thead>
+          <tr>
+            <th>Product / Stream</th>
+            <th class="th-group" colspan="3">JULY 2026</th>
+            <th class="th-group" colspan="2">MOM</th>
+            <th class="th-group" colspan="2">YTD JAN–JUL</th>
+          </tr>
+          <tr>
+            <th></th>
+            <th>Actual</th><th>Budget</th><th>Var $</th>
+            <th>Jun Actual</th><th>MoM Δ</th>
+            <th>YTD Actual</th><th>YTD Var $</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tr-section"><td colspan="8" style="text-align:left">BILLING</td></tr>
+          <tr>
+            <td class="td-indent">Billing &amp; Precision MRR</td>
+            <td>$2,012K</td><td>$2,026K</td><td class="neg">-$14K</td>
+            <td>$1,967K</td><td class="pos">+$45K</td>
+            <td>$14,140K</td><td class="neg">-$177K</td>
+          </tr>
+          <tr>
+            <td class="td-indent">Odin MRR</td>
+            <td class="neg">$233K</td><td>$262K</td><td class="neg">-$29K</td>
+            <td>$232K</td><td class="neu">+$1K</td>
+            <td>$1,734K</td><td class="neg">-$57K</td>
+          </tr>
+          <tr class="tr-subtotal">
+            <td>Subtotal Billing</td>
+            <td>$2,245K</td><td>$2,288K</td><td class="neg">-$43K</td>
+            <td>$2,200K</td><td class="pos">+$45K</td>
+            <td>$15,873K</td><td class="neg">-$234K</td>
+          </tr>
+          <tr class="tr-section"><td colspan="8">PSA</td></tr>
+          <tr>
+            <td class="td-indent">PSA Legacy</td>
+            <td class="neg">$624K</td><td>$691K</td><td class="neg">-$67K</td>
+            <td>$644K</td><td class="neg">-$20K</td>
+            <td>$4,641K</td><td class="neg">-$298K</td>
+          </tr>
+          <tr>
+            <td class="td-indent">PSA Web</td>
+            <td class="neg">$71K</td><td>$237K</td><td class="neg">-$166K</td>
+            <td>$56K</td><td class="pos">+$15K</td>
+            <td>$296K</td><td class="neg">-$626K</td>
+          </tr>
+          <tr class="tr-subtotal">
+            <td>Subtotal PSA</td>
+            <td class="neg">$695K</td><td>$928K</td><td class="neg">-$233K</td>
+            <td>$700K</td><td class="neg">-$5K</td>
+            <td>$4,938K</td><td class="neg">-$924K</td>
+          </tr>
+          <tr class="tr-section"><td colspan="8">RESALE</td></tr>
+          <tr>
+            <td class="td-indent">Cyber Protect</td>
+            <td class="pos">$27K</td><td>$23K</td><td class="pos">+$4K</td>
+            <td class="neg">-$6K</td><td class="pos">+$33K</td>
+            <td>$92K</td><td class="pos">+$27K</td>
+          </tr>
+          <tr>
+            <td class="td-indent">Commerce Hub</td>
+            <td class="neu">$0</td><td>$12K</td><td class="neg">-$12K</td>
+            <td>$0</td><td class="neu">flat</td>
+            <td>$0</td><td class="neg">-$28K</td>
+          </tr>
+          <tr class="tr-subtotal">
+            <td>Subtotal Resale</td>
+            <td class="pos">$27K</td><td>$35K</td><td class="neg">-$8K</td>
+            <td class="neg">-$6K</td><td class="pos">+$33K</td>
+            <td>$92K</td><td class="neg">-$1K</td>
+          </tr>
+          <tr class="tr-total">
+            <td>Total MRR</td>
+            <td class="neg">$2,967K</td><td>$3,251K</td><td class="neg">-$284K</td>
+            <td>$2,894K</td><td class="pos">+$73K</td>
+            <td>$20,903K</td><td class="neg">-$1,159K</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:12px; display:flex; flex-direction:column; gap:7px">
+      <div style="display:flex; align-items:flex-start; gap:12px; padding:9px 14px; background:rgba(74,222,128,0.08); border-left:3px solid var(--green); border-radius:4px">
+        <span style="color:var(--green); font-size:13px; font-weight:700; flex-shrink:0">▲</span>
+        <span style="font-size:12px; color:var(--gray6); line-height:1.5"><strong style="color:#fff">Total MRR YTD +$127K (+0.6%) vs 2025 — marginal growth.</strong> Recurring revenue $20,903K vs $20,777K prior year. Billing growth is absorbing most of the PSA decline.</span>
+      </div>
+      <div style="display:flex; align-items:flex-start; gap:12px; padding:9px 14px; background:rgba(249,115,22,0.07); border-left:3px solid var(--amber); border-radius:4px">
+        <span style="color:var(--amber); font-size:13px; font-weight:700; flex-shrink:0">▶</span>
+        <span style="font-size:12px; color:var(--gray6); line-height:1.5"><strong style="color:#fff">PSA Legacy → Web conversion carries a ~13% revenue loss.</strong> $51K of Legacy ARR converted YTD yields only $45K in Web — structural compression embedded in the product transition. Legacy continues to decline (-$298K YTD vs budget) and Web is ramping but far behind plan (-$626K YTD).</span>
+      </div>
+      <div style="display:flex; align-items:flex-start; gap:12px; padding:9px 14px; background:rgba(74,222,128,0.08); border-left:3px solid var(--green); border-radius:4px">
+        <span style="color:var(--green); font-size:13px; font-weight:700; flex-shrink:0">▲</span>
+        <span style="font-size:12px; color:var(--gray6); line-height:1.5"><strong style="color:#fff">Billing +$45K MoM — Q2 credits did not repeat.</strong> CallTower (Inoria), Class 5, and Prestige credits from prior months are non-recurring; Billing MRR is normalizing toward sustainable run rate.</span>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Rev.io | Financial Results | July 2026 | Prepared by Finance | Close date: August 2026</span><span class="conf">CONFIDENTIAL</span></div>
+  <div class="slide-nav-strip"><a href="#s9">&#8592; Prev</a><span class="sn-info">5 / 13<br>Revenue by Stream</span><a href="#s6">Next &#8594;</a></div>
+</div>
+
+<!-- ══════════════ SLIDE 6: RETENTION ══════════════ -->
+<div class="slide" id="s6">
+  <div class="slide-header"><span class="brand">Rev.io</span><span class="slide-title">Recurring Revenue &amp; Retention</span><span class="slide-sub">July TTM: ARR $38.0M &nbsp;|&nbsp; GRR 86.3% &nbsp;|&nbsp; NRR 95.4%</span></div>
+  <div class="slide-body">
+    <div class="arr-row" style="margin-bottom:14px">
+      <div class="arr-card">
+        <div class="arr-label">Total ARR (TTM)</div>
+        <div class="arr-value">$38.0M</div>
+        <div class="arr-sub"><span style="color:var(--green)">+$441K (+1.2%)</span> vs Jul '25 $37.5M</div>
+      </div>
+      <div class="arr-card">
+        <div class="arr-label">Gross Retention (TTM)</div>
+        <div class="arr-value" style="color:var(--red)">86.3%</div>
+        <div class="arr-sub">Goal: 90% &nbsp;|&nbsp; Jul '25: 87.6%</div>
+      </div>
+      <div class="arr-card">
+        <div class="arr-label">Net Retention (TTM)</div>
+        <div class="arr-value" style="color:var(--red)">95.4%</div>
+        <div class="arr-sub">Goal: 105% &nbsp;|&nbsp; <span style="color:var(--green)">▲ +0.8pp vs June</span></div>
+      </div>
+      <div class="arr-card">
+        <div class="arr-label">MRR (Jul EOP)</div>
+        <div class="arr-value">$3.16M</div>
+        <div class="arr-sub"><span style="color:var(--green)">+$93.6K MoM (+3.0%)</span> — strong recovery</div>
+      </div>
+    </div>
+
+    <div class="tbl-wrap" style="margin-bottom:12px">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px">
+        <span style="color:var(--blue); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.07em">ARR Rollforward — TTM Jul '25 to Jul '26</span>
+        <span style="background:rgba(248,113,113,0.18); color:var(--red); font-size:10px; font-weight:700; padding:2px 8px; border-radius:3px; letter-spacing:.5px">▼ Retention metrics worse YoY</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th style="color:var(--green)">+ New</th>
+            <th style="color:var(--green)">+ Upsell</th>
+            <th style="color:var(--red)">− Downsell</th>
+            <th style="color:var(--red)">− Churn</th>
+            <th>Net Δ</th>
+            <th>Jul '25 ARR</th>
+            <th>= Jul '26 ARR</th>
+            <th>GRR <span style="color:var(--red); font-size:9px">▼ vs '25</span></th>
+            <th>NRR <span style="color:var(--red); font-size:9px">▼ vs '25</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tr-total">
+            <td>Total</td>
+            <td class="pos">+$2,165K</td>
+            <td class="pos">+$3,436K</td>
+            <td class="neg">-$2,323K</td>
+            <td class="neg">-$2,838K</td>
+            <td class="pos">+$441K</td>
+            <td>$37,531K</td>
+            <td>$37,972K</td>
+            <td class="neg">86.3% <span style="font-size:9px; color:var(--red)">(was 87.6%)</span></td>
+            <td class="neg">95.4% <span style="font-size:9px; color:var(--red)">(was 97.2%)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tbl-wrap" style="margin-bottom:12px">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px">
+        <span style="color:var(--gray4); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.07em">ARR Rollforward — TTM Jul '24 to Jul '25 <span style="font-weight:400; font-style:italic">(prior year comparison)</span></span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th style="color:var(--green)">+ New</th>
+            <th style="color:var(--green)">+ Upsell</th>
+            <th style="color:var(--red)">− Downsell</th>
+            <th style="color:var(--red)">− Churn</th>
+            <th>Net Δ</th>
+            <th>Jul '24 ARR</th>
+            <th>= Jul '25 ARR</th>
+            <th>GRR</th>
+            <th>NRR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tr-total" style="opacity:0.75">
+            <td>Total</td>
+            <td class="pos">+$2,316K</td>
+            <td class="pos">+$3,467K</td>
+            <td class="neg">-$1,963K</td>
+            <td class="neg">-$2,527K</td>
+            <td class="pos">+$1,294K</td>
+            <td>$36,237K</td>
+            <td>$37,531K</td>
+            <td>87.6%</td>
+            <td>97.2%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tbl-wrap">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px">
+        <span style="color:var(--blue); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.07em">MRR Rollforward — July 2026</span>
+        <span style="background:rgba(74,222,128,0.18); color:var(--green); font-size:10px; font-weight:700; padding:2px 8px; border-radius:3px; letter-spacing:.5px">▲ Improved MoM — strong upsell</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>BOP MRR</th>
+            <th style="color:var(--green)">New</th>
+            <th style="color:var(--green)">Upsell</th>
+            <th style="color:var(--red)">Downsell</th>
+            <th style="color:var(--red)">Churn</th>
+            <th>EOP MRR</th>
+            <th>Net Δ</th>
+            <th>MoM GRR</th>
+            <th>MoM NRR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tr-total">
+            <td>July 2026</td>
+            <td>$3,071K</td>
+            <td class="pos">+$21K</td>
+            <td class="pos">+$172K</td>
+            <td class="neg">-$75K</td>
+            <td class="neg">-$24K</td>
+            <td>$3,164K</td>
+            <td class="pos">+$93.6K</td>
+            <td class="pos">96.7%</td>
+            <td class="pos">102.3%</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:9px; color:var(--gray4); margin-top:4px; font-style:italic">MoM GRR/NRR = July-only basis. TTM GRR/NRR = trailing 12-month through July 2026. Source: Tab 9 Rtntn Rllfwd.</p>
+    </div>
+
+    <div style="background:rgba(34,211,238,0.06); border-left:3px solid var(--blue); border-radius:4px; padding:7px 12px; margin-bottom:10px; font-size:9px; color:var(--gray5); line-height:1.5">
+      <strong style="color:var(--blue)">How to read these metrics:</strong> <strong style="color:var(--gray6)">Gross retention (GRR)</strong> measures how well we hold the existing revenue base — churn and contraction only, no expansion. <strong style="color:var(--gray6)">Net retention (NRR)</strong> includes upsell and expansion on top of that, so it shows whether the product is growing within accounts. GRR above 90% and NRR above 100% are healthy SaaS benchmarks.
+    </div>
+    <div class="tbl-wrap">
+      <div style="color:var(--blue); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; margin-bottom:6px">Retention by Product (TTM Jul '26 vs Jul '25)</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Jul '26 ARR</th>
+            <th>GRR '26</th>
+            <th>GRR '25</th>
+            <th>GRR YoY Δ</th>
+            <th>NRR '26</th>
+            <th>NRR '25</th>
+            <th>NRR YoY Δ</th>
+            <th>Jul '25 ARR</th>
+            <th>YoY ARR Δ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Billing (incl. Odin)</td>
+            <td>$26.9M</td>
+            <td class="pos">90.5%</td><td>90.4%</td><td class="pos">▲ +0.1pp</td>
+            <td class="pos">100.0%</td><td>99.8%</td><td class="pos">▲ +0.2pp</td>
+            <td>$26.2M</td>
+            <td class="pos">▲ +$0.7M (+2.6%)</td>
+          </tr>
+          <tr>
+            <td>PSA Legacy</td>
+            <td>$7.5M</td>
+            <td class="neg">76.3%</td><td>80.5%</td><td class="neg">▼ -4.2pp</td>
+            <td class="neg">82.4%</td><td>88.9%</td><td class="neg">▼ -6.5pp</td>
+            <td>$9.1M</td>
+            <td class="neg">▼ -$1.6M (-18%)</td>
+          </tr>
+          <tr>
+            <td>PSA Web</td>
+            <td>$0.9M</td>
+            <td style="color:var(--gray4)">—</td><td style="color:var(--gray4)">—</td><td class="pos">▲ new</td>
+            <td style="color:var(--gray4)">—</td><td style="color:var(--gray4)">—</td><td class="pos">▲ new</td>
+            <td>~$0</td>
+            <td class="pos">▲ new product</td>
+          </tr>
+          <tr>
+            <td>Resale (Cyber Protect)</td>
+            <td>$0.3M</td>
+            <td style="color:var(--gray4)">—</td><td style="color:var(--gray4)">—</td><td class="pos">▲ new</td>
+            <td style="color:var(--gray4)">—</td><td style="color:var(--gray4)">—</td><td class="pos">▲ new</td>
+            <td style="color:var(--gray4)">—</td>
+            <td class="pos">▲ new product</td>
+          </tr>
+          <tr>
+            <td>Payments</td>
+            <td>$2.4M</td>
+            <td class="neg">76.1%</td><td>87.2%</td><td class="neg">▼ -11.1pp</td>
+            <td class="neg">95.1%</td><td>105.5%</td><td class="neg">▼ -10.4pp</td>
+            <td>$2.2M</td>
+            <td class="pos">▲ +$0.2M</td>
+          </tr>
+          <tr class="tr-total">
+            <td>Total</td>
+            <td>$37.97M</td>
+            <td class="neg">86.3%</td><td>87.6%</td><td class="neg">▼ -1.3pp</td>
+            <td class="neg">95.4%</td><td>97.2%</td><td class="neg">▼ -1.8pp</td>
+            <td>$37.53M</td>
+            <td class="pos">+$441K (+1.2%)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:9px; color:var(--gray4); margin-top:4px; font-style:italic">GRR/NRR are TTM through July 2026. PSA Web and Resale TTM metrics excluded (products launched mid-period). Source: Retention updates 8.21.26.xlsx.</p>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Rev.io | Financial Results | July 2026 | Prepared by Finance | Close date: August 2026</span><span class="conf">CONFIDENTIAL</span></div>
+  <div class="slide-nav-strip"><a href="#s4">&#8592; Prev</a><span class="sn-info">6 / 13<br>Recurring Revenue &amp; Retention</span><a href="#scredits">Next &#8594;</a></div>
+</div>
+
+<!-- ══════════════ SLIDE 6b: CREDITS ══════════════ -->
+<div class="slide" id="scredits">
+  <div class="slide-header"><span class="brand">Rev.io</span><span class="slide-title">Customer Credits</span><span class="slide-sub">Q3 YTD | July – August 2026</span></div>
+  <div class="slide-body" style="display:flex; flex-direction:column; gap:10px">
+
+    <!-- Bucket summary -->
+    <table style="width:100%; border-collapse:collapse; font-size:9.5px; color:var(--gray6)">
+      <thead>
+        <tr style="background:#0a1628">
+          <th style="text-align:left; padding:4px 10px; color:var(--gray4); font-size:8px; text-transform:uppercase; letter-spacing:.07em; border-bottom:2px solid var(--amber); width:40%">Bucket</th>
+          <th style="text-align:right; padding:4px 10px; color:var(--gray4); font-size:8px; text-transform:uppercase; letter-spacing:.07em; border-bottom:2px solid var(--amber)">Jul</th>
+          <th style="text-align:right; padding:4px 10px; color:var(--gray4); font-size:8px; text-transform:uppercase; letter-spacing:.07em; border-bottom:2px solid var(--amber)">Aug</th>
+          <th style="text-align:right; padding:4px 10px; color:var(--amber); font-size:8px; text-transform:uppercase; letter-spacing:.07em; border-bottom:2px solid var(--amber)">Q3 YTD</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:3px 10px; border-bottom:1px solid var(--gray3)">Courtesy / sales credit</td><td style="text-align:right; padding:3px 10px; border-bottom:1px solid var(--gray3)">$13,068</td><td style="text-align:right; padding:3px 10px; border-bottom:1px solid var(--gray3)">$13,617</td><td style="text-align:right; padding:3px 10px; border-bottom:1px solid var(--gray3); color:var(--blue); font-weight:700">$26,685</td></tr>
+        <tr><td style="padding:3px 10px; border-bottom:1px solid var(--gray3)">Performance credit</td><td style="text-align:right; padding:3px 10px; border-bottom:1px solid var(--gray3)">$20,235</td><td style="text-align:right; padding:3px 10px; border-bottom:1px solid var(--gray3)">$500</td><td style="text-align:right; padding:3px 10px; border-bottom:1px solid var(--gray3); color:var(--red); font-weight:700">$20,735</td></tr>
+        <tr><td style="padding:3px 10px; border-bottom:1px solid var(--gray3)">Third-party / pass-through</td><td style="text-align:right; padding:3px 10px; border-bottom:1px solid var(--gray3)">$8,400</td><td style="text-align:right; padding:3px 10px; border-bottom:1px solid var(--gray3)">$8,400</td><td style="text-align:right; padding:3px 10px; border-bottom:1px solid var(--gray3); color:var(--amber); font-weight:700">$16,800</td></tr>
+        <tr><td style="padding:3px 10px; border-bottom:1px solid var(--gray3)">Billing error credit</td><td style="text-align:right; padding:3px 10px; border-bottom:1px solid var(--gray3)">$2,100</td><td style="text-align:right; padding:3px 10px; border-bottom:1px solid var(--gray3)">$1,370</td><td style="text-align:right; padding:3px 10px; border-bottom:1px solid var(--gray3); color:var(--amber); font-weight:700">$3,470</td></tr>
+        <tr style="background:#0a1628; font-weight:700"><td style="padding:4px 10px">Total Q3 YTD</td><td style="text-align:right; padding:4px 10px; color:var(--amber)">$43,803</td><td style="text-align:right; padding:4px 10px; color:var(--amber)">$23,887</td><td style="text-align:right; padding:4px 10px; color:var(--amber); font-size:12px">$67,690</td></tr>
+      </tbody>
+    </table>
+
+    <!-- Two detail tables -->
+    <div style="display:grid; grid-template-columns:35% 63%; gap:10px">
+
+      <!-- Performance Credits -->
+      <div class="tbl-wrap">
+        <div style="color:var(--red); font-size:9.5px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; margin-bottom:4px">Performance — $20,735</div>
+        <table style="font-size:8px; width:100%; border-collapse:collapse; color:var(--gray6)">
+          <thead><tr>
+            <th style="background:var(--gray1); color:#94a3b8; padding:3px 4px; text-align:left; font-weight:600">Client</th>
+            <th style="background:var(--gray1); color:#94a3b8; padding:3px 4px; text-align:right; font-weight:600">Jul</th>
+            <th style="background:var(--gray1); color:#94a3b8; padding:3px 4px; text-align:right; font-weight:600">Aug</th>
+            <th style="background:var(--gray1); color:#94a3b8; padding:3px 4px; text-align:left; font-weight:600">Driver</th>
+          </tr></thead>
+          <tbody>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">Valhelio Tech</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--red)">$8,300</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">PSA Web outage credits</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">Telesystem</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--amber)">$7,140</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">SLA outage credit</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">Electronic Systems Installers</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--amber)">$1,770</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">QBO integration errors; cancelled 7/8</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">VIA Technology</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--amber)">$1,270</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">QBD integration not delivered by 6/1/26</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">Pilothouse Communications</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">$575</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">Integration duplication at onboarding</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">Automated Telecom</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">$500</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">Product functionality gap</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">Valentine Systems</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">$500</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">Taxes not applying to PSA invoices</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">Guardian Advanced Solutions</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">$435</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">Product functionality gap</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">R-Squared Security</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">$150</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">Product functionality gap</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">Integrated Technologies</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">$95</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">Product functionality gap</td></tr>
+            <tr style="background:#0a1628; font-weight:700"><td style="padding:3px 4px; color:var(--red)">Total Performance</td><td style="text-align:right; padding:3px 4px; color:var(--red)">$20,235</td><td style="text-align:right; padding:3px 4px; color:var(--red)">$500</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Courtesy / Sales Credits -->
+      <div class="tbl-wrap">
+        <div style="color:var(--blue); font-size:9.5px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; margin-bottom:4px">Courtesy / Sales — $26,685</div>
+        <table style="font-size:8px; width:100%; border-collapse:collapse; color:var(--gray6)">
+          <thead><tr>
+            <th style="background:var(--gray1); color:#94a3b8; padding:3px 4px; text-align:left; font-weight:600">Client</th>
+            <th style="background:var(--gray1); color:#94a3b8; padding:3px 4px; text-align:right; font-weight:600">Jul</th>
+            <th style="background:var(--gray1); color:#94a3b8; padding:3px 4px; text-align:right; font-weight:600">Aug</th>
+            <th style="background:var(--gray1); color:#94a3b8; padding:3px 4px; text-align:left; font-weight:600">Driver</th>
+          </tr></thead>
+          <tbody>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">RSS Restaurant Service Solutions</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--amber)">$4,200</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">Delay in support during QBO migration</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">MAPS Security</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--amber)">$3,120</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">Billing hold timed out; billed before re-engaged</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">DFW Security</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--amber)">$2,970</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">On hold in RTS — never should have been billed</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">GuentherTech Inc</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--amber)">$2,070</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">Billed while vetting system in RTS</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">Remote Technologies</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--amber)">$1,010</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--amber)">$1,010</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">Customer re-evaluating Rev.io (Will approved)</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">Vanran Communications</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--amber)">$2,000</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">QBO integration delay</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">Xtel Communications</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--amber)">$2,000</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">Sync integration delay</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">DTS Technology - Reseller</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--amber)">$1,300</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">Dev work incomplete; delays on our end</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">Sparrow Technologies</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">$592</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">$555</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">In RTS — functionality gaps in PSA</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">Yeti Networks</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">$945</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">$192</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">RTS/functionality issues; cancellation requested 7/24</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">S-Net Communications</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">$1,000</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">Payments rev share</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">Franklin Electric Co Inc</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">$975</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">Onboarding delay — promised package functionality late</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">Smartcom Home Technologies</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">$845</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">Onboarding delay — promised package functionality late</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">OVISS CCTV</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">$830</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">Wrong documentation delayed project kickoff</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">RyTel</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">$450</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">Working toward onboarding; cancelled 7/24</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">Planet Secure</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">$371</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">Customer asked to start onboarding later</td></tr>
+            <tr><td style="padding:2px 4px; border-bottom:1px solid var(--gray3)">R-Squared Security dba Trails Co</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">$250</td><td style="text-align:right; padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">—</td><td style="padding:2px 4px; border-bottom:1px solid var(--gray3); color:var(--gray4)">PSA Web implementation fee waiver</td></tr>
+            <tr style="background:#0a1628; font-weight:700"><td style="padding:3px 4px; color:var(--blue)">Total Courtesy / Sales</td><td style="text-align:right; padding:3px 4px; color:var(--blue)">$13,068</td><td style="text-align:right; padding:3px 4px; color:var(--blue)">$13,617</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer"><span>Rev.io | Financial Results | July 2026 | Prepared by Finance | Close date: August 2026</span><span class="conf">CONFIDENTIAL</span></div>
+  <div class="slide-nav-strip"><a href="#s6">&#8592; Prev</a><span class="sn-info">7 / 13<br>Customer Credits</span><a href="#s7">Next &#8594;</a></div>
+</div>
+
+<!-- ══════════════ SLIDE 7: CAC & LTV ══════════════ -->
+<div class="slide" id="s7">
+  <div class="slide-header"><span class="brand">Rev.io</span><span class="slide-title">CAC &amp; LTV Analysis</span><span class="slide-sub">TTM through July '26 | Source: Package Master Tab "6. Investor Summary KPIs"</span></div>
+  <div class="slide-body">
+    <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; margin-bottom:14px">
+      <div class="score-card" style="border-bottom: 3px solid var(--green)">
+        <div class="sc-label">CAC Ratio — Total</div>
+        <div class="sc-value">0.36x</div>
+        <div class="sc-period">TTM Jul '26</div>
+        <div class="sc-goal" style="color:var(--green)">Goal: 1.0x — strong</div>
+      </div>
+      <div class="score-card" style="border-bottom: 3px solid var(--blue)">
+        <div class="sc-label">Payback Period — Total</div>
+        <div class="sc-value">33.3 mo</div>
+        <div class="sc-period">TTM Jul '26</div>
+        <div class="sc-goal" style="color:var(--blue)">Billing 28.0 · PSA 45.6 · Pmts 23.5</div>
+      </div>
+      <div class="score-card" style="border-bottom: 3px solid var(--amber)">
+        <div class="sc-label">Gross Retention — Total</div>
+        <div class="sc-value">84.7%</div>
+        <div class="sc-period">TTM Jul '26</div>
+        <div class="sc-goal" style="color:var(--red)">Goal: 90%</div>
+      </div>
+      <div class="score-card" style="border-bottom: 3px solid var(--amber)">
+        <div class="sc-label">LTV/CAC — Total</div>
+        <div class="sc-value">2.35x</div>
+        <div class="sc-period">TTM Jul '26</div>
+        <div class="sc-goal" style="color:var(--red)">Goal: 3.0x</div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; align-items:start">
+      <div>
+        <h4 style="color:var(--blue); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px">CAC Ratio Trend by Product (TTM, Quarterly)</h4>
+        <div class="chart-wrap" style="height:175px"><canvas id="cacBarChart"></canvas></div>
+        <p style="font-size:9px; color:var(--gray4); margin-top:6px; font-style:italic">Lower = more efficient. Jul '26 TTM: Billing 0.43x · PSA 0.26x · Payments 0.51x.</p>
+      </div>
+      <div>
+        <h4 style="color:var(--blue); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px">Payback Period Trend by Product (months, TTM)</h4>
+        <div class="chart-wrap" style="height:175px"><canvas id="paybackChart"></canvas></div>
+        <p style="font-size:9px; color:var(--gray4); margin-top:6px; font-style:italic">Jul '26 TTM: Billing 28.0 mo · PSA 45.6 mo · Payments 23.5 mo · Total 33.3 mo.</p>
+      </div>
+    </div>
+
+    <div class="tbl-wrap" style="margin-top:14px">
+      <div style="color:var(--blue); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; margin-bottom:6px">LTV/CAC by Product (TTM Jul '26)</div>
+      <table style="font-size:11px">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>CAC Ratio</th>
+            <th>Payback (mo)</th>
+            <th>GRR</th>
+            <th>LTV/CAC</th>
+            <th>vs Goal (3.0x)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Billing</td>
+            <td>0.43x</td>
+            <td>28.0</td>
+            <td>90.5%</td>
+            <td class="pos">4.54x</td>
+            <td class="pos">▲ +1.54x above goal</td>
+          </tr>
+          <tr>
+            <td>PSA</td>
+            <td>0.26x</td>
+            <td>45.6</td>
+            <td>74.8%</td>
+            <td class="neg">1.05x</td>
+            <td class="neg">▼ -1.95x below goal</td>
+          </tr>
+          <tr>
+            <td>Payments</td>
+            <td>0.51x</td>
+            <td>23.5</td>
+            <td>76.1%</td>
+            <td class="neg">2.13x</td>
+            <td class="neg">▼ -0.87x below goal</td>
+          </tr>
+          <tr class="tr-total">
+            <td>Total</td>
+            <td>0.36x</td>
+            <td>33.3</td>
+            <td>84.7%</td>
+            <td class="neg">2.35x</td>
+            <td class="neg">▼ -0.65x below goal</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Rev.io | Financial Results | July 2026 | Prepared by Finance | Close date: August 2026</span><span class="conf">CONFIDENTIAL</span></div>
+  <div class="slide-nav-strip"><a href="#scredits">&#8592; Prev</a><span class="sn-info">8 / 13<br>CAC &amp; LTV Analysis</span><a href="#s8">Next &#8594;</a></div>
+</div>
+
+<!-- ══════════════ SLIDE 8: PAYMENTS ══════════════ -->
+<div class="slide" id="s8">
+  <div class="slide-header"><span class="brand">Rev.io</span><span class="slide-title">Payments Revenue Tracker</span><span class="slide-sub">January 2026 – July 2026 | Paya/Nuvei &amp; TRX</span></div>
+  <div class="slide-body">
+    <div style="display:grid; grid-template-columns: 42% 56%; gap:16px; align-items:start">
+      <div style="order:2">
+        <h4 style="color:var(--blue); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px">BPS Analysis — July vs June 2026</h4>
+        <table style="font-size:10px; width:100%; border-collapse:collapse">
+          <thead>
+            <tr>
+              <th style="background:var(--gray1); color:#94a3b8; padding:5px 6px; text-align:left; font-size:9px">Channel</th>
+              <th style="background:var(--gray1); color:#94a3b8; padding:5px 6px; text-align:right; font-size:9px">Jun Vol</th>
+              <th style="background:var(--gray1); color:#94a3b8; padding:5px 6px; text-align:right; font-size:9px">Jun BPS</th>
+              <th style="background:var(--gray1); color:#e2e8f0; padding:5px 6px; text-align:right; font-size:9px">Jul Vol</th>
+              <th style="background:var(--gray1); color:#e2e8f0; padding:5px 6px; text-align:right; font-size:9px">Jul BPS</th>
+              <th style="background:var(--gray1); color:#22d3ee; padding:5px 6px; text-align:right; font-size:9px">Δ BPS</th>
+              <th style="background:var(--gray1); color:#e2e8f0; padding:5px 6px; text-align:right; font-size:9px">Jul Rev</th>
+              <th style="background:var(--gray1); color:#22d3ee; padding:5px 6px; text-align:right; font-size:9px">Δ Rev vs Jun</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:4px 6px; border-bottom:1px solid var(--gray3)">Paya CC</td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3); color:var(--gray4)">$24.6M</td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3); color:var(--gray4)">47.1</td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3)">$27.4M<br><span style="color:var(--green); font-size:8px">+11.4%</span></td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3)">47.8</td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3); color:var(--green)">+0.7<br><span style="font-size:8px">+1.5%</span></td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3)">$130.8K</td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3); color:var(--green)">+$14.8K<br><span style="font-size:8px">+12.8%</span></td></tr>
+            <tr><td style="padding:4px 6px; border-bottom:1px solid var(--gray3)">Paya ACH</td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3); color:var(--gray4)">$21.6M</td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3); color:var(--gray4)">6.9</td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3)">$22.1M<br><span style="color:var(--green); font-size:8px">+2.3%</span></td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3)">7.2</td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3); color:var(--green)">+0.3<br><span style="font-size:8px">+4.3%</span></td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3)">$16.0K</td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3); color:var(--green)">+$1.0K<br><span style="font-size:8px">+6.7%</span></td></tr>
+            <tr><td style="padding:4px 6px; border-bottom:1px solid var(--gray3)">TRX CC</td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3); color:var(--gray4)">$7.2M</td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3); color:var(--gray4)">38.2</td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3)">$7.5M<br><span style="color:var(--green); font-size:8px">+4.2%</span></td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3)">41.1</td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3); color:var(--green)">+2.9<br><span style="font-size:8px">+7.6%</span></td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3)">$31.0K</td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3); color:var(--green)">+$3.5K<br><span style="font-size:8px">+12.7%</span></td></tr>
+            <tr><td style="padding:4px 6px; border-bottom:1px solid var(--gray3)">TRX ACH</td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3); color:var(--gray4)">$6.3M</td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3); color:var(--gray4)">28.5</td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3)">$6.6M<br><span style="color:var(--green); font-size:8px">+4.8%</span></td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3)">28.9</td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3); color:var(--green)">+0.4<br><span style="font-size:8px">+1.4%</span></td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3)">$19.1K</td><td style="padding:4px 6px; text-align:right; border-bottom:1px solid var(--gray3); color:var(--green)">+$1.0K<br><span style="font-size:8px">+5.6%</span></td></tr>
+            <tr style="background:#061020; font-weight:700"><td style="padding:5px 6px; color:#fff">Blended Total</td><td style="padding:5px 6px; text-align:right; color:var(--gray4)">$59.8M</td><td style="padding:5px 6px; text-align:right; color:var(--gray4)">29.5</td><td style="padding:5px 6px; text-align:right; color:#e2e8f0">$63.7M<br><span style="color:var(--green); font-size:8px; font-weight:400">+6.5%</span></td><td style="padding:5px 6px; text-align:right; color:#22d3ee">30.9</td><td style="padding:5px 6px; text-align:right; color:var(--green)">+1.4<br><span style="font-size:8px; font-weight:400">+4.7%</span></td><td style="padding:5px 6px; text-align:right; color:#22d3ee">$196.9K</td><td style="padding:5px 6px; text-align:right; color:var(--green)">+$20.3K<br><span style="font-size:8px; font-weight:400">+11.5%</span></td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:9px; color:var(--gray4); margin-top:4px; font-style:italic">June = prior month (net). July = gross rev share from Tab 6 Investor KPIs. Net Payments July = $195K. All channels positive MoM — strong month across the board.</p>
+      </div>
+      <div style="order:1">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px">
+          <div class="score-card" style="border-bottom:3px solid var(--green); padding:8px 10px">
+            <div class="sc-label">Net Payments</div>
+            <div class="sc-value" style="font-size:18px">$195K</div>
+            <div style="font-size:10px; color:var(--green); margin-top:4px">+$20K MoM</div>
+          </div>
+          <div class="score-card" style="border-bottom:3px solid var(--blue); padding:8px 10px">
+            <div class="sc-label">Total Volume</div>
+            <div class="sc-value" style="font-size:18px">$63.7M</div>
+            <div style="font-size:10px; color:var(--green); margin-top:4px">+$3.9M MoM</div>
+          </div>
+        </div>
+        <h4 style="color:var(--blue); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin-bottom:6px">Revenue by Channel — Jan–Jul '26</h4>
+        <div class="chart-wrap" style="height:270px"><canvas id="revShareChart"></canvas></div>
+        <p style="font-size:9px; color:var(--gray4); margin-top:6px; font-style:italic">Revenue ($) by processor &amp; channel. Source: Tab 6 Investor KPIs.</p>
+        <p style="font-size:9px; color:var(--green); margin-top:10px; font-style:italic; text-align:right">✅ All channels positive MoM — TRX CC +2.9 bps rate improvement leads the gain.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Rev.io | Financial Results | July 2026 | Prepared by Finance | Close date: August 2026</span><span class="conf">CONFIDENTIAL</span></div>
+  <div class="slide-nav-strip"><a href="#s7">&#8592; Prev</a><span class="sn-info">9 / 13<br>Payments Revenue Tracker</span><a href="#ssavings">Next &#8594;</a></div>
+</div>
+
+<!-- ══════════════ SLIDE 10: SAVINGS — COMMITTED ══════════════ -->
+<div class="slide" id="ssavings">
+  <div class="slide-header"><span class="brand">Rev.io</span><span class="slide-title">FY26 Cost Reduction Programme</span><span class="slide-sub">Aug–Dec 2026 impact vs. 8.7.26 baseline | <strong style="color:var(--green)">Committed Savings</strong></span></div>
+  <div class="slide-body" style="display:flex; flex-direction:column; gap:12px">
+
+    <!-- HEADLINE row — committed only -->
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px">
+      <div style="background:rgba(34,211,238,0.08); border:1px solid rgba(34,211,238,0.25); border-radius:6px; padding:10px 14px; text-align:center">
+        <div style="font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--blue); margin-bottom:4px">Committed — Vendor &amp; Media</div>
+        <div style="font-size:24px; font-weight:800; color:var(--green); line-height:1.1">$257K</div>
+        <div style="font-size:9px; color:var(--gray4); margin-top:2px">$50K / mo run rate</div>
+      </div>
+      <div style="background:rgba(34,211,238,0.08); border:1px solid rgba(34,211,238,0.25); border-radius:6px; padding:10px 14px; text-align:center">
+        <div style="font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--blue); margin-bottom:4px">Committed — Headcount (net)</div>
+        <div style="font-size:24px; font-weight:800; color:var(--green); line-height:1.1">$27K</div>
+        <div style="font-size:9px; color:var(--gray4); margin-top:2px">$21K / mo run rate</div>
+      </div>
+      <div style="background:rgba(74,222,128,0.12); border:1px solid rgba(74,222,128,0.35); border-radius:6px; padding:10px 14px; text-align:center">
+        <div style="font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--green); margin-bottom:4px">Total Committed — NET</div>
+        <div style="font-size:24px; font-weight:800; color:var(--green); line-height:1.1">$284K</div>
+        <div style="font-size:9px; color:var(--gray4); margin-top:2px">$71K / mo run rate</div>
+      </div>
+    </div>
+
+    <!-- Two committed tables side by side -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:start">
+
+      <!-- TABLE 1: Committed Vendor -->
+      <div>
+        <div style="font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--blue); margin-bottom:5px">Committed — Vendor, Subscription &amp; Media</div>
+        <table style="width:100%; border-collapse:collapse; font-size:9px; color:var(--gray5)">
+          <thead><tr style="border-bottom:1px solid #1e3a5f">
+            <th style="text-align:left; padding:4px 6px; color:var(--gray4); font-weight:600">Action</th>
+            <th style="text-align:left; padding:4px 6px; color:var(--gray4); font-weight:600">Dept</th>
+            <th style="text-align:right; padding:4px 6px; color:var(--gray4); font-weight:600">FY26</th>
+            <th style="text-align:right; padding:4px 6px; color:var(--gray4); font-weight:600">Mo.</th>
+          </tr></thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Media spend capped at ramp</td><td style="padding:4px 6px; color:var(--gray4)">Mktg</td><td style="text-align:right; padding:4px 6px">$159,558</td><td style="text-align:right; padding:4px 6px; color:var(--green)">$23,112</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">VoIPxp Odin support cancelled</td><td style="padding:4px 6px; color:var(--gray4)">CS</td><td style="text-align:right; padding:4px 6px">$7,500</td><td style="text-align:right; padding:4px 6px; color:var(--green)">$2,500</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Microsoft hosting reduced</td><td style="padding:4px 6px; color:var(--gray4)">Infra</td><td style="text-align:right; padding:4px 6px">$16,000</td><td style="text-align:right; padding:4px 6px; color:var(--green)">$4,000</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Vervint hosting reduction</td><td style="padding:4px 6px; color:var(--gray4)">Infra</td><td style="text-align:right; padding:4px 6px">$13,600</td><td style="text-align:right; padding:4px 6px; color:var(--green)">$3,400</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Zendesk subscription falling off</td><td style="padding:4px 6px; color:var(--gray4)">CS</td><td style="text-align:right; padding:4px 6px">$8,000</td><td style="text-align:right; padding:4px 6px; color:var(--green)">$4,000</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">ChurnZero falling off</td><td style="padding:4px 6px; color:var(--gray4)">CS</td><td style="text-align:right; padding:4px 6px">$6,870</td><td style="text-align:right; padding:4px 6px; color:var(--green)">$3,435</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Customertimes spiff cancelled</td><td style="padding:4px 6px; color:var(--gray4)">Finance</td><td style="text-align:right; padding:4px 6px">$7,500</td><td style="text-align:right; padding:4px 6px; color:var(--green)">$1,500</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Brendan Mahan NS support</td><td style="padding:4px 6px; color:var(--gray4)">Finance</td><td style="text-align:right; padding:4px 6px">$7,500</td><td style="text-align:right; padding:4px 6px; color:var(--green)">$1,500</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Udemy cancelled</td><td style="padding:4px 6px; color:var(--gray4)">HR</td><td style="text-align:right; padding:4px 6px">$6,940</td><td style="text-align:right; padding:4px 6px; color:var(--green)">$1,388</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">T&amp;E run rate reduced</td><td style="padding:4px 6px; color:var(--gray4)">HR</td><td style="text-align:right; padding:4px 6px">$5,444</td><td style="text-align:right; padding:4px 6px; color:var(--green)">$1,000</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Vanta cancelled</td><td style="padding:4px 6px; color:var(--gray4)">Infra</td><td style="text-align:right; padding:4px 6px">$4,892</td><td style="text-align:right; padding:4px 6px; color:var(--green)">$1,223</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">7Pace.com cancelled</td><td style="padding:4px 6px; color:var(--gray4)">Eng</td><td style="text-align:right; padding:4px 6px">$4,800</td><td style="text-align:right; padding:4px 6px; color:var(--green)">$1,200</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Postman team licence removed</td><td style="padding:4px 6px; color:var(--gray4)">Eng</td><td style="text-align:right; padding:4px 6px">$4,012</td><td style="text-align:right; padding:4px 6px; color:var(--green)">$1,003</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Dropbox reduced</td><td style="padding:4px 6px; color:var(--gray4)">Finance</td><td style="text-align:right; padding:4px 6px">$2,850</td><td style="text-align:right; padding:4px 6px; color:var(--green)">$570</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Fathom cancelled</td><td style="padding:4px 6px; color:var(--gray4)">Finance</td><td style="text-align:right; padding:4px 6px">$2,020</td><td style="text-align:right; padding:4px 6px; color:var(--green)">$505</td></tr>
+            <tr style="background:rgba(34,211,238,0.05); border-top:1px solid #22d3ee44">
+              <td colspan="2" style="padding:4px 6px; font-weight:700; color:#e2e8f0">Subtotal</td>
+              <td style="text-align:right; padding:4px 6px; font-weight:700; color:var(--green)">$257,486</td>
+              <td style="text-align:right; padding:4px 6px; font-weight:700; color:var(--green)">$50,336</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- TABLE 2: Committed Headcount -->
+      <div>
+        <div style="font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--blue); margin-bottom:5px">Committed — Headcount (net of backfills, new roles &amp; merit)</div>
+        <table style="width:100%; border-collapse:collapse; font-size:9px; color:var(--gray5)">
+          <thead><tr style="border-bottom:1px solid #1e3a5f">
+            <th style="text-align:left; padding:4px 6px; color:var(--gray4); font-weight:600">Action group</th>
+            <th style="text-align:left; padding:4px 6px; color:var(--gray4); font-weight:600">Names</th>
+            <th style="text-align:right; padding:4px 6px; color:var(--gray4); font-weight:600">FY26</th>
+            <th style="text-align:right; padding:4px 6px; color:var(--gray4); font-weight:600">Mo.</th>
+          </tr></thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Voluntary departures, net of backfills</td><td style="padding:4px 6px; color:var(--gray4); font-style:italic">Boydston / VP Mktg req; Oudin / Badiani; Stevenson / backfill; Timothy / VP Onboarding</td><td style="text-align:right; padding:4px 6px; color:var(--red)">−$19,178</td><td style="text-align:right; padding:4px 6px; color:var(--red)">−$387</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Voluntary departures, no backfill</td><td style="padding:4px 6px; color:var(--gray4); font-style:italic">Gunnels (Eng); Salin (Direct Sales); Resuta (Client Success)</td><td style="text-align:right; padding:4px 6px; color:var(--green)">$94,888</td><td style="text-align:right; padding:4px 6px; color:var(--green)">$19,326</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Involuntary terminations (RIF Aug'26), net</td><td style="padding:4px 6px; color:var(--gray4); font-style:italic">Sharp; Okada; Downs — less Eng Term 1 &amp; Prod Mgmt Term 2 &amp; 3 placeholders reversed</td><td style="text-align:right; padding:4px 6px; color:var(--red)">−$27,039</td><td style="text-align:right; padding:4px 6px; color:var(--red)">−$6,047</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Removal / deferral of open roles</td><td style="padding:4px 6px; color:var(--gray4); font-style:italic">Snr Integrations Eng; UX Product Mgr; Demand Gen Mgr; 2 × AI req</td><td style="text-align:right; padding:4px 6px; color:var(--green)">$142,426</td><td style="text-align:right; padding:4px 6px; color:var(--green)">$25,000</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">New roles, rehires, contractors &amp; merit — cost add</td><td style="padding:4px 6px; color:var(--gray4); font-style:italic">Fractional CMO; Fusco; Abarno; 2 × SDR; Brown (Summit); 4 × merit</td><td style="text-align:right; padding:4px 6px; color:var(--red)">−$169,416</td><td style="text-align:right; padding:4px 6px; color:var(--red)">−$20,917</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Benefits &amp; taxes on all headcount actions</td><td style="padding:4px 6px; color:var(--gray4); font-style:italic">Onboarding/CS, Engineering, Product, Marketing, Sales, cancelled AI reqs</td><td style="text-align:right; padding:4px 6px; color:var(--green)">$5,086</td><td style="text-align:right; padding:4px 6px; color:var(--green)">$3,834</td></tr>
+            <tr style="background:rgba(34,211,238,0.05); border-top:1px solid #22d3ee44">
+              <td colspan="2" style="padding:4px 6px; font-weight:700; color:#e2e8f0">Subtotal — headcount (net)</td>
+              <td style="text-align:right; padding:4px 6px; font-weight:700; color:var(--green)">$26,768</td>
+              <td style="text-align:right; padding:4px 6px; font-weight:700; color:var(--green)">$20,810</td>
+            </tr>
+            <tr style="background:rgba(249,115,22,0.06); border-top:1px solid #f9731633">
+              <td colspan="2" style="padding:4px 6px; font-size:8.5px; color:var(--amber)"><em>Memo — placeholders in forecast (not yet selected): Hongsyvilay-Thayer, Greenfield, Glozeris &amp; Zubairu (Eng / Prod Mgmt / Infra) — Nov–Dec'26 reduction already carried</em></td>
+              <td style="text-align:right; padding:4px 6px; font-size:8.5px; color:var(--amber)">$53,400</td>
+              <td style="text-align:right; padding:4px 6px; font-size:8.5px; color:var(--amber)">$26,700</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Rev.io | Financial Results | July 2026 | Prepared by Finance | Close date: August 2026</span><span class="conf">CONFIDENTIAL</span></div>
+  <div class="slide-nav-strip"><a href="#s8">&#8592; Prev</a><span class="sn-info">10 / 14<br>Cost Savings — Committed</span><a href="#ssavings2">Next &#8594;</a></div>
+</div>
+
+<!-- ══════════════ SLIDE 11: SAVINGS — POTENTIAL ══════════════ -->
+<div class="slide" id="ssavings2">
+  <div class="slide-header"><span class="brand">Rev.io</span><span class="slide-title">FY26 Cost Reduction Programme</span><span class="slide-sub">Pipeline opportunities — not yet committed | Decision pending</span></div>
+  <div class="slide-body" style="display:flex; flex-direction:column; gap:12px">
+
+    <!-- HEADLINE row — potential -->
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px">
+      <div style="background:rgba(249,115,22,0.08); border:1px solid rgba(249,115,22,0.25); border-radius:6px; padding:10px 14px; text-align:center">
+        <div style="font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--amber); margin-bottom:4px">Potential (not committed)</div>
+        <div style="font-size:24px; font-weight:800; color:var(--amber); line-height:1.1">$123K</div>
+        <div style="font-size:9px; color:var(--gray4); margin-top:2px">$33K / mo run rate</div>
+      </div>
+      <div style="background:rgba(74,222,128,0.06); border:1px solid rgba(74,222,128,0.2); border-radius:6px; padding:10px 14px; text-align:center">
+        <div style="font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--green); margin-bottom:4px">Committed (prior slide)</div>
+        <div style="font-size:24px; font-weight:800; color:var(--green); line-height:1.1">$284K</div>
+        <div style="font-size:9px; color:var(--gray4); margin-top:2px">$71K / mo run rate</div>
+      </div>
+      <div style="background:rgba(249,115,22,0.12); border:1px solid rgba(249,115,22,0.4); border-radius:6px; padding:10px 14px; text-align:center">
+        <div style="font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--amber); margin-bottom:4px">Total Identified Opportunity</div>
+        <div style="font-size:24px; font-weight:800; color:var(--amber); line-height:1.1">$407K</div>
+        <div style="font-size:9px; color:var(--gray4); margin-top:2px">$104K / mo run rate</div>
+      </div>
+    </div>
+
+    <!-- Potential tables side by side — now with full width -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:start">
+
+      <!-- TABLE 3: Potential HC -->
+      <div>
+        <div style="font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--amber); margin-bottom:5px">Potential — Headcount &amp; Contractors</div>
+        <table style="width:100%; border-collapse:collapse; font-size:9px; color:var(--gray5)">
+          <thead><tr style="border-bottom:1px solid #1e3a5f">
+            <th style="text-align:left; padding:4px 6px; color:var(--gray4); font-weight:600">Opportunity</th>
+            <th style="text-align:right; padding:4px 6px; color:var(--gray4); font-weight:600">Mo. Saving</th>
+          </tr></thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Sapirman, Jay — Sales</td><td style="text-align:right; padding:4px 6px; color:var(--amber)">$7,709</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Jon Glenn — contractor, Product</td><td style="text-align:right; padding:4px 6px; color:var(--amber)">$8,000</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Brendan Mahan — Product portion</td><td style="text-align:right; padding:4px 6px; color:var(--amber)">$4,700</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Benefits &amp; taxes (Sapirman)</td><td style="text-align:right; padding:4px 6px; color:var(--amber)">$1,691</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Mark Reverman — under review</td><td style="text-align:right; padding:4px 6px; color:var(--gray4)">TBD</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Client Success HC — nothing firm</td><td style="text-align:right; padding:4px 6px; color:var(--gray4)">TBD</td></tr>
+            <tr style="background:rgba(249,115,22,0.05); border-top:1px solid #f9731644">
+              <td style="padding:4px 6px; font-weight:700; color:#e2e8f0">Subtotal</td>
+              <td style="text-align:right; padding:4px 6px; font-weight:700; color:var(--amber)">$22,100 / mo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- TABLE 4: Potential Vendor -->
+      <div>
+        <div style="font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--amber); margin-bottom:5px">Potential — Vendor &amp; Subscription</div>
+        <table style="width:100%; border-collapse:collapse; font-size:9px; color:var(--gray5)">
+          <thead><tr style="border-bottom:1px solid #1e3a5f">
+            <th style="text-align:left; padding:4px 6px; color:var(--gray4); font-weight:600">Opportunity</th>
+            <th style="text-align:right; padding:4px 6px; color:var(--gray4); font-weight:600">Mo. Saving</th>
+          </tr></thead>
+          <tbody>
+            <tr style="border-bottom:0"><td style="padding:4px 6px">Azure SQL MI 3-yr reserved</td><td style="text-align:right; padding:4px 6px; color:var(--amber)">$7,893</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td colspan="2" style="padding:2px 6px 5px 16px; font-size:8px; color:var(--gray4); font-style:italic">15.9% discount · Annual savings $94,711 · 3-yr total $284,132 · Break-even Mar 2029 (mo. 29.3)</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">LinkedIn — Sales</td><td style="text-align:right; padding:4px 6px; color:var(--amber)">$960</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">B-lynk — Product</td><td style="text-align:right; padding:4px 6px; color:var(--amber)">$800</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Clay Labs — Sales</td><td style="text-align:right; padding:4px 6px; color:var(--amber)">$800</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Figma — Product</td><td style="text-align:right; padding:4px 6px; color:var(--amber)">$120</td></tr>
+            <tr style="border-bottom:1px solid #1a2e48"><td style="padding:4px 6px">Okta / PandaDoc / Meditology / Copilot</td><td style="text-align:right; padding:4px 6px; color:var(--gray4)">TBD</td></tr>
+            <tr style="background:rgba(249,115,22,0.05); border-top:1px solid #f9731644">
+              <td style="padding:4px 6px; font-weight:700; color:#e2e8f0">Subtotal</td>
+              <td style="text-align:right; padding:4px 6px; font-weight:700; color:var(--amber)">$10,572 / mo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Rev.io | Financial Results | July 2026 | Prepared by Finance | Close date: August 2026</span><span class="conf">CONFIDENTIAL</span></div>
+  <div class="slide-nav-strip"><a href="#ssavings">&#8592; Prev</a><span class="sn-info">11 / 14<br>Cost Savings — Pipeline</span><a href="#srevision">Next &#8594;</a></div>
+</div>
+
+<!-- ══════════════ SLIDE 11: FORECAST ══════════════ -->
+<div class="slide" id="s10">
+  <div class="slide-header"><span class="brand">Rev.io</span><span class="slide-title">Forecast — 12 Month Outlook</span><span class="slide-sub">Jul '26 → Jun '27 | <span style="background:rgba(249,115,22,0.2); color:var(--amber); padding:1px 6px; border-radius:3px; font-weight:700">Optimistic Outlook</span> | Path to 30% EBITDA &amp; $20M Run Rate</span></div>
+  <div class="slide-body">
+    <div>
+      <h4 style="color:var(--blue); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin-bottom:4px">Revenue by Product Line ($K) — Jul '26 → Jun '27</h4>
+      <div class="chart-wrap" style="height:195px"><canvas id="revByStreamChart"></canvas></div>
+      <!-- Period growth strip — Jul '26 → Jun '27 -->
+      <div style="margin-top:6px; display:grid; grid-template-columns:repeat(6,1fr); gap:5px">
+        <div style="background:#0a1628; border-radius:5px; padding:7px 8px; border-top:2px solid #22d3ee">
+          <div style="font-size:8px; font-weight:700; color:var(--blue); margin-bottom:2px">Billing &amp; Odin</div>
+          <div style="font-size:8px; color:var(--gray4); margin-bottom:4px">$2,245K → $2,320K</div>
+          <div style="font-size:18px; font-weight:700; color:var(--green)">+3.3%</div>
+        </div>
+        <div style="background:#0a1628; border-radius:5px; padding:7px 8px; border-top:2px solid #4ade80">
+          <div style="font-size:8px; font-weight:700; color:var(--green); margin-bottom:2px">PSA</div>
+          <div style="font-size:8px; color:var(--gray4); margin-bottom:4px">$695K → $781K</div>
+          <div style="font-size:18px; font-weight:700; color:var(--green)">+12.4%</div>
+        </div>
+        <div style="background:#0a1628; border-radius:5px; padding:7px 8px; border-top:2px solid #f97316">
+          <div style="font-size:8px; font-weight:700; color:#f97316; margin-bottom:2px">Payments</div>
+          <div style="font-size:8px; color:var(--gray4); margin-bottom:4px">$197K → $332K</div>
+          <div style="font-size:18px; font-weight:700; color:var(--green)">+68.5%</div>
+        </div>
+        <div style="background:#0a1628; border-radius:5px; padding:7px 8px; border-top:2px solid #fbbf24">
+          <div style="font-size:8px; font-weight:700; color:#fbbf24; margin-bottom:2px">Cyber Protect</div>
+          <div style="font-size:8px; color:var(--gray4); margin-bottom:4px">$27K → $41K</div>
+          <div style="font-size:18px; font-weight:700; color:var(--green)">+51.9%</div>
+        </div>
+        <div style="background:#0a1628; border-radius:5px; padding:7px 8px; border-top:2px solid #a78bfa">
+          <div style="font-size:8px; font-weight:700; color:#a78bfa; margin-bottom:2px">CommerceHub</div>
+          <div style="font-size:8px; color:var(--gray4); margin-bottom:4px">$0 → $10K</div>
+          <div style="font-size:18px; font-weight:700; color:var(--blue)">new</div>
+        </div>
+        <div style="background:#0a1628; border-radius:5px; padding:7px 8px; border-top:2px solid #e2e8f0">
+          <div style="font-size:8px; font-weight:700; color:#e2e8f0; margin-bottom:2px">Total Gross MRR</div>
+          <div style="font-size:8px; color:var(--gray4); margin-bottom:4px">$3,164K → $3,484K</div>
+          <div style="font-size:18px; font-weight:700; color:var(--green)">+10.1%</div>
+        </div>
+      </div>
+      <p style="font-size:8px; color:var(--gray4); margin-top:3px; font-style:italic">% growth Jul '26 (actual) → Jun '27 (optimistic forecast). Total Gross MRR = all 5 product lines incl. Payments.</p>
+    </div>
+
+    <!-- ARR Run Rate strip -->
+    <div style="margin-top:10px">
+      <div style="color:var(--blue); font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; margin-bottom:6px">ARR Run Rate — Annualized ($M)</div>
+      <div style="display:grid; grid-template-columns:repeat(12,1fr); gap:4px">
+        <div style="text-align:center; background:#0a1628; border:1px solid #22d3ee44; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Jul'26 ●</div><div style="font-size:10px; font-weight:700; color:var(--blue)">$37.97M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Aug'26</div><div style="font-size:10px; font-weight:700; color:var(--blue)">$38.61M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Sep'26</div><div style="font-size:10px; font-weight:700; color:var(--blue)">$38.90M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Oct'26</div><div style="font-size:10px; font-weight:700; color:var(--blue)">$38.01M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Nov'26</div><div style="font-size:10px; font-weight:700; color:var(--blue)">$39.06M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Dec'26</div><div style="font-size:10px; font-weight:700; color:var(--blue)">$39.65M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Jan'27</div><div style="font-size:10px; font-weight:700; color:var(--blue)">$40.00M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Feb'27</div><div style="font-size:10px; font-weight:700; color:var(--blue)">$40.31M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Mar'27</div><div style="font-size:10px; font-weight:700; color:var(--blue)">$40.65M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Apr'27</div><div style="font-size:10px; font-weight:700; color:var(--blue)">$41.00M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">May'27</div><div style="font-size:10px; font-weight:700; color:var(--blue)">$41.41M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Jun'27</div><div style="font-size:10px; font-weight:700; color:var(--blue)">$41.80M</div></div>
+      </div>
+    </div>
+
+    <!-- EBITDA Run Rate strip -->
+    <div style="margin-top:8px">
+      <div style="color:var(--green); font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; margin-bottom:6px">EBITDA Run Rate — Annualized ($M)</div>
+      <div style="display:grid; grid-template-columns:repeat(12,1fr); gap:4px">
+        <div style="text-align:center; background:#0a1628; border:1px solid #22d3ee44; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Jul'26 ●</div><div style="font-size:10px; font-weight:700; color:var(--blue)">$9.20M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Aug'26</div><div style="font-size:10px; font-weight:700; color:var(--blue)">$9.13M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Sep'26</div><div style="font-size:10px; font-weight:700; color:var(--amber)">$7.53M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Oct'26</div><div style="font-size:10px; font-weight:700; color:var(--amber)">$7.98M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Nov'26</div><div style="font-size:10px; font-weight:700; color:var(--blue)">$9.48M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Dec'26</div><div style="font-size:10px; font-weight:700; color:var(--green)">$10.22M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Jan'27</div><div style="font-size:10px; font-weight:700; color:var(--blue)">$9.80M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Feb'27</div><div style="font-size:10px; font-weight:700; color:var(--green)">$10.19M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Mar'27</div><div style="font-size:10px; font-weight:700; color:var(--green)">$10.22M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Apr'27</div><div style="font-size:10px; font-weight:700; color:var(--green)">$10.50M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">May'27</div><div style="font-size:10px; font-weight:700; color:var(--green)">$10.78M</div></div>
+        <div style="text-align:center; background:#0a1628; border-radius:4px; padding:5px 2px"><div style="font-size:7.5px; color:var(--gray4); margin-bottom:3px">Jun'27</div><div style="font-size:10px; font-weight:700; color:var(--green)">$10.86M</div></div>
+      </div>
+    </div>
+
+    <!-- Target Barometers -->
+    <div style="margin-top:10px; display:grid; grid-template-columns:1fr 1fr; gap:10px">
+      <!-- ARR Barometer -->
+      <div style="background:#0a1628; border-radius:6px; padding:10px 14px; border:1px solid #1e3a5f">
+        <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px">
+          <span style="font-size:9px; font-weight:700; color:var(--blue); text-transform:uppercase; letter-spacing:.07em">ARR Target — Jun '27</span>
+          <span style="font-size:9px; font-weight:700; color:var(--blue)">$41.80M <span style="color:var(--gray4); font-weight:400">of</span> <span style="color:#fff">$60M</span></span>
+        </div>
+        <div style="background:#1e3a5f; border-radius:4px; height:12px; overflow:hidden; margin-bottom:6px">
+          <div style="width:69.7%; height:100%; background:linear-gradient(90deg,#22d3ee,#38bdf8); border-radius:4px; position:relative">
+            <div style="position:absolute; right:5px; top:50%; transform:translateY(-50%); font-size:8px; font-weight:700; color:#0d1f3c">70%</div>
+          </div>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:9px; color:var(--gray4)">
+          <span>Jul '26 actual: <strong style="color:var(--blue)">$37.97M</strong></span>
+          <span style="color:var(--amber)">$18.2M gap remaining</span>
+          <span style="color:var(--gray3)">Goal: $60M</span>
+        </div>
+      </div>
+      <!-- EBITDA Barometer -->
+      <div style="background:#0a1628; border-radius:6px; padding:10px 14px; border:1px solid #1e3a5f">
+        <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px">
+          <span style="font-size:9px; font-weight:700; color:var(--green); text-transform:uppercase; letter-spacing:.07em">EBITDA Target — Jun '27</span>
+          <span style="font-size:9px; font-weight:700; color:var(--green)">$10.86M <span style="color:var(--gray4); font-weight:400">of</span> <span style="color:#fff">$20M / 30%</span></span>
+        </div>
+        <div style="background:#1e3a5f; border-radius:4px; height:12px; overflow:hidden; margin-bottom:6px">
+          <div style="width:54.3%; height:100%; background:linear-gradient(90deg,#4ade80,#22c55e); border-radius:4px; position:relative">
+            <div style="position:absolute; right:5px; top:50%; transform:translateY(-50%); font-size:8px; font-weight:700; color:#0d1f3c">54%</div>
+          </div>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:9px; color:var(--gray4)">
+          <span>Jul '26 actual: <strong style="color:var(--green)">$9.20M</strong></span>
+          <span style="color:var(--amber)">~26.5% margin vs 30% goal</span>
+          <span style="color:var(--gray3)">Goal: $20M / 30%</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="slide-footer"><span>Rev.io | Financial Results | July 2026 | Prepared by Finance | Close date: August 2026</span><span class="conf">CONFIDENTIAL</span></div>
+  <div class="slide-nav-strip"><a href="#srevision">&#8592; Prev</a><span class="sn-info">13 / 14<br>12 Month Outlook</span><a href="#s11">Next &#8594;</a></div>
+</div>
+
+<!-- ══════════════ SLIDE 12: FORECAST REVISION ══════════════ -->
+<div class="slide" id="srevision">
+  <div class="slide-header"><span class="brand">Rev.io</span><span class="slide-title">Forecast Updates &amp; Changes</span><span class="slide-sub">Forecast Revision: Jul → Aug 2026 | Source: Financial Projections MASTER — Quarterly P&amp;L</span></div>
+  <div class="slide-body">
+
+    <!-- KPI chips row -->
+    <div style="display:flex; gap:10px; margin-bottom:12px; flex-wrap:wrap">
+      <div style="background:#132a4a; border-radius:6px; padding:6px 12px; flex:1; min-width:120px; text-align:center">
+        <div style="font-size:8px; color:var(--gray4); text-transform:uppercase; letter-spacing:.06em">FY'26 EBITDA Revision</div>
+        <div style="font-size:15px; font-weight:800; color:var(--green)">+$487K</div>
+        <div style="font-size:8px; color:var(--gray4)">vs prior forecast</div>
+      </div>
+      <div style="background:#132a4a; border-radius:6px; padding:6px 12px; flex:1; min-width:120px; text-align:center">
+        <div style="font-size:8px; color:var(--gray4); text-transform:uppercase; letter-spacing:.06em">FY'27 EBITDA Revision</div>
+        <div style="font-size:15px; font-weight:800; color:var(--amber)">−$258K</div>
+        <div style="font-size:8px; color:var(--gray4)">vs prior forecast</div>
+      </div>
+      <div style="background:#132a4a; border-radius:6px; padding:6px 12px; flex:1; min-width:120px; text-align:center">
+        <div style="font-size:8px; color:var(--gray4); text-transform:uppercase; letter-spacing:.06em">FY'26 Revenue Revision</div>
+        <div style="font-size:15px; font-weight:800; color:var(--amber)">−$29K</div>
+        <div style="font-size:8px; color:var(--gray4)">minor; savings offset</div>
+      </div>
+      <div style="background:#132a4a; border-radius:6px; padding:6px 12px; flex:1; min-width:120px; text-align:center">
+        <div style="font-size:8px; color:var(--gray4); text-transform:uppercase; letter-spacing:.06em">FY'27 Revenue Revision</div>
+        <div style="font-size:15px; font-weight:800; color:var(--red)">−$1.6M</div>
+        <div style="font-size:8px; color:var(--gray4)">lower MRR trajectory</div>
+      </div>
+    </div>
+
+    <!-- Top: 2 comparison charts -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:10px">
+      <div>
+        <div style="color:var(--blue); font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; margin-bottom:4px">Net Revenue — Previous vs Updated ($K)</div>
+        <div class="chart-wrap" style="height:150px"><canvas id="revRevisionChart"></canvas></div>
+      </div>
+      <div>
+        <div style="color:var(--green); font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; margin-bottom:4px">EBITDA — Previous vs Updated ($K)</div>
+        <div class="chart-wrap" style="height:150px"><canvas id="ebitdaRevisionChart"></canvas></div>
+      </div>
+    </div>
+
+    <!-- Bridge chart -->
+    <div style="margin-bottom:10px">
+      <div style="color:var(--amber); font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; margin-bottom:4px">EBITDA Revision Bridge — Δ vs Prior Forecast ($K)</div>
+      <div class="chart-wrap" style="height:140px"><canvas id="ebitdaBridgeChart"></canvas></div>
+      <p style="font-size:8px; color:var(--gray4); margin-top:3px; font-style:italic">
+        2026 improvement: incentive reductions + HC adjustments + spend optimisation outweigh minor revenue softness. &nbsp;|&nbsp;
+        2027 reduction: lower MRR trajectory ($−162K to $−942K/qtr) offsets savings, resulting in net EBITDA compression.
+      </p>
+    </div>
+
+    <!-- Covenant compliance table -->
+    <div style="margin-top:4px">
+      <div style="color:var(--blue); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin-bottom:6px">Revenue &amp; EBITDA vs Covenant Requirements — Quarterly View</div>
+      <table style="width:100%; border-collapse:collapse; font-size:9px; color:var(--gray6)">
+        <thead>
+          <tr style="background:#0a1628; font-size:8px; text-transform:uppercase">
+            <th style="text-align:left; padding:4px 6px; border-bottom:2px solid #22d3ee; min-width:110px"></th>
+            <th colspan="5" style="text-align:center; padding:4px 6px; border-bottom:2px solid #22d3ee; border-left:1px solid #1e3a5f; color:var(--blue)">— 2026 —</th>
+            <th colspan="5" style="text-align:center; padding:4px 6px; border-bottom:2px solid #22d3ee; border-left:2px solid #22d3ee; color:var(--amber)">— 2027 —</th>
+          </tr>
+          <tr style="background:var(--gray1); color:var(--gray4); font-size:8px; text-transform:uppercase">
+            <th style="text-align:left; padding:3px 6px; border-bottom:1px solid #1e3a5f"></th>
+            <th style="text-align:right; padding:3px 6px; border-bottom:1px solid #1e3a5f; border-left:1px solid #1e3a5f">Q1</th>
+            <th style="text-align:right; padding:3px 6px; border-bottom:1px solid #1e3a5f">Q2</th>
+            <th style="text-align:right; padding:3px 6px; border-bottom:1px solid #1e3a5f">Q3</th>
+            <th style="text-align:right; padding:3px 6px; border-bottom:1px solid #1e3a5f">Q4</th>
+            <th style="text-align:right; padding:3px 6px; border-bottom:1px solid #1e3a5f; color:#fff; font-weight:800">FY</th>
+            <th style="text-align:right; padding:3px 6px; border-bottom:1px solid #1e3a5f; border-left:2px solid #22d3ee">Q1</th>
+            <th style="text-align:right; padding:3px 6px; border-bottom:1px solid #1e3a5f">Q2</th>
+            <th style="text-align:right; padding:3px 6px; border-bottom:1px solid #1e3a5f">Q3</th>
+            <th style="text-align:right; padding:3px 6px; border-bottom:1px solid #1e3a5f">Q4</th>
+            <th style="text-align:right; padding:3px 6px; border-bottom:1px solid #1e3a5f; color:#fff; font-weight:800">FY</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:4px 6px; border-bottom:1px solid #1e3a5f; font-weight:700; color:var(--blue)">Net Revenue ($K)</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; border-left:1px solid #1e3a5f">$9,638</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f">$9,498</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f">$9,657</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f">$9,655</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; font-weight:700; color:#e2e8f0">$38,448</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; border-left:2px solid #22d3ee">$9,782</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f">$9,967</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f">$10,347</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f">$10,868</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; font-weight:700; color:#e2e8f0">$40,964</td>
+          </tr>
+          <tr style="background:rgba(74,222,128,0.05)">
+            <td style="padding:4px 6px; border-bottom:1px solid #1e3a5f; font-weight:700; color:var(--green)">EBITDA ($K)</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; border-left:1px solid #1e3a5f; color:var(--green)">$2,137</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; color:var(--amber)">$1,622</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; color:var(--green)">$2,156</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; color:var(--green)">$2,207</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; font-weight:700; color:#e2e8f0">$8,121</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; border-left:2px solid #22d3ee; color:var(--red)">$2,167 ✗</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; color:var(--red)">$2,229 ✗</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; color:var(--red)">$2,353 ✗</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; color:var(--red)">$2,943 ✗</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; font-weight:700; color:#e2e8f0">$9,692</td>
+          </tr>
+          <tr style="color:var(--gray4); font-size:8.5px">
+            <td style="padding:3px 6px 3px 14px; border-bottom:1px solid #1e3a5f">EBITDA %</td>
+            <td style="text-align:right; padding:3px 6px; border-bottom:1px solid #1e3a5f; border-left:1px solid #1e3a5f">22.2%</td>
+            <td style="text-align:right; padding:3px 6px; border-bottom:1px solid #1e3a5f">17.1%</td>
+            <td style="text-align:right; padding:3px 6px; border-bottom:1px solid #1e3a5f">22.3%</td>
+            <td style="text-align:right; padding:3px 6px; border-bottom:1px solid #1e3a5f">22.9%</td>
+            <td style="text-align:right; padding:3px 6px; border-bottom:1px solid #1e3a5f">21.1%</td>
+            <td style="text-align:right; padding:3px 6px; border-bottom:1px solid #1e3a5f; border-left:2px solid #22d3ee">22.2%</td>
+            <td style="text-align:right; padding:3px 6px; border-bottom:1px solid #1e3a5f">22.4%</td>
+            <td style="text-align:right; padding:3px 6px; border-bottom:1px solid #1e3a5f">22.7%</td>
+            <td style="text-align:right; padding:3px 6px; border-bottom:1px solid #1e3a5f">27.1%</td>
+            <td style="text-align:right; padding:3px 6px; border-bottom:1px solid #1e3a5f">23.7%</td>
+          </tr>
+          <tr style="background:rgba(249,115,22,0.07)">
+            <td style="padding:4px 6px; border-bottom:1px solid #1e3a5f; font-weight:700; color:var(--amber)">TTM Covenant Req. ($K)</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; border-left:1px solid #1e3a5f; color:var(--gray4)">—</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; color:var(--gray4)">—</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; color:var(--amber)">$7,000</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; color:var(--amber)">$8,000</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; color:var(--gray4)">—</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; border-left:2px solid #22d3ee; color:var(--amber)">$8,788</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; color:var(--amber)">$9,164</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; color:var(--amber)">$9,575</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; color:var(--amber)">$10,028</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; color:var(--gray4)">—</td>
+          </tr>
+          <tr style="background:rgba(34,211,238,0.06)">
+            <td style="padding:4px 6px; border-bottom:1px solid #1e3a5f; font-weight:700; color:var(--blue)">Actual/Forecasted TTM EBITDA ($K)</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; border-left:1px solid #1e3a5f; color:var(--green)">$6,384</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; color:var(--green)">$6,843</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; color:var(--green)">$7,865</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; font-weight:700; color:var(--green)">$8,515</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; color:var(--gray4)">—</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; border-left:2px solid #22d3ee; font-weight:700; color:var(--red)">$8,473</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; font-weight:700; color:var(--red)">$9,023</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; font-weight:700; color:var(--red)">$9,222</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; font-weight:700; color:var(--red)">$9,958</td>
+            <td style="text-align:right; padding:4px 6px; border-bottom:1px solid #1e3a5f; color:var(--gray4)">—</td>
+          </tr>
+          <tr style="background:rgba(239,68,68,0.1); font-weight:700">
+            <td style="padding:4px 6px; color:var(--green)">TTM EBITDA vs. Req. ($K)</td>
+            <td style="text-align:right; padding:4px 6px; border-left:1px solid #1e3a5f; color:var(--green)">+$634</td>
+            <td style="text-align:right; padding:4px 6px; color:var(--green)">+$843</td>
+            <td style="text-align:right; padding:4px 6px; color:var(--green)">+$865</td>
+            <td style="text-align:right; padding:4px 6px; color:var(--green)">+$515</td>
+            <td style="text-align:right; padding:4px 6px; color:var(--gray4)">—</td>
+            <td style="text-align:right; padding:4px 6px; border-left:2px solid #22d3ee; color:var(--red)">($315)</td>
+            <td style="text-align:right; padding:4px 6px; color:var(--red)">($141)</td>
+            <td style="text-align:right; padding:4px 6px; color:var(--red)">($353)</td>
+            <td style="text-align:right; padding:4px 6px; color:var(--red)">($69)</td>
+            <td style="text-align:right; padding:4px 6px; color:var(--gray4)">—</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:8px; color:var(--gray4); margin-top:4px; font-style:italic">✗ = TTM EBITDA below TTM covenant requirement per current forecast</p>
+    </div>
+
+  </div>
+  <div class="slide-footer"><span>Rev.io | Financial Results | July 2026 | Prepared by Finance | Close date: August 2026</span><span class="conf">CONFIDENTIAL</span></div>
+  <div class="slide-nav-strip"><a href="#ssavings2">&#8592; Prev</a><span class="sn-info">12 / 14<br>Forecast Updates &amp; Changes</span><a href="#s10">Next &#8594;</a></div>
+</div>
+
+<!-- ══════════════ SLIDE 13: KPI SCORECARD ══════════════ -->
+<div class="slide" id="s11">
+  <div class="slide-header"><span class="brand">Rev.io</span><span class="slide-title">KPIs / Scorecard</span><span class="slide-sub">July 2026 &nbsp;<span class="badge">APPENDIX</span></span></div>
+  <div class="slide-body">
+    <div class="score-grid">
+      <div class="score-card off-track">
+        <div class="sc-label">Gross Revenue Retention</div>
+        <div class="sc-value">86.3%</div>
+        <div class="sc-period">TTM Jul | <span class="trend-up">▲ flat vs June</span></div>
+        <div class="sc-goal">Goal: <span class="goal-val">90%</span></div>
+        <div class="sc-goal" style="margin-top:4px; font-size:10px; color:var(--gray4)">Jul '25: 87.6%</div>
+      </div>
+      <div class="score-card off-track">
+        <div class="sc-label">Net Revenue Retention</div>
+        <div class="sc-value">95.4%</div>
+        <div class="sc-period">TTM Jul | <span class="trend-up">▲ +0.8pp vs June</span></div>
+        <div class="sc-goal">Goal: <span class="goal-val">105%</span></div>
+        <div class="sc-goal" style="margin-top:4px; font-size:10px; color:var(--gray4)">MoM NRR 102.3% — strong July</div>
+      </div>
+      <div class="score-card on-track">
+        <div class="sc-label">EBITDA Margin</div>
+        <div class="sc-value">20.6%</div>
+        <div class="sc-period">TTM Jul '26 | Jul actuals: 24.2% | YTD: 20.3%</div>
+        <div class="sc-goal">Goal: <span class="goal-val">30%</span></div>
+        <div class="sc-goal" style="margin-top:4px; font-size:10px; color:var(--green)">YTD $128K ahead of budget | HC 24 below budget</div>
+      </div>
+      <div class="score-card off-track">
+        <div class="sc-label">Rule of X</div>
+        <div class="sc-value">22.1%</div>
+        <div class="sc-period">TTM (Growth 1.5% + EBITDA 20.6%)</div>
+        <div class="sc-goal">Goal: <span class="goal-val">50%</span></div>
+        <div class="sc-goal" style="margin-top:4px; font-size:10px; color:var(--gray4)">FCF margin 8.9% TTM</div>
+      </div>
+      <div class="score-card on-track">
+        <div class="sc-label">CAC Ratio</div>
+        <div class="sc-value">0.33x</div>
+        <div class="sc-period">TTM Total (Jul '26)</div>
+        <div class="sc-goal">Goal: <span class="goal-val">1.0x</span></div>
+        <div class="sc-goal" style="margin-top:4px; font-size:10px; color:var(--gray4)">22.7 mo payback (Billing) | 36.7 mo total</div>
+      </div>
+      <div class="score-card mid-track">
+        <div class="sc-label">LTV / CAC</div>
+        <div class="sc-value">2.38x</div>
+        <div class="sc-period">TTM Jul '26 | <span style="color:var(--green)">▲ +0.13x vs June</span></div>
+        <div class="sc-goal">Goal: <span class="goal-val">3.0x</span></div>
+        <div class="sc-goal" style="margin-top:4px; font-size:10px; color:var(--amber)">Billing 5.58x | PSA 1.03x | Payments 2.30x</div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px">
+      <div style="background:var(--gray2); border:1px solid var(--gray3); border-radius:6px; padding:12px 14px">
+        <div style="font-size:10px; font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:.8px; margin-bottom:6px">Watch</div>
+        <div style="font-size:11px; color:var(--gray6); line-height:1.5">GRR 86.3% and NRR 95.4% — both below goal. PSA Legacy structural decline is the primary drag; BCN churn rolls off TTM window by Q4.</div>
+      </div>
+      <div style="background:var(--gray2); border:1px solid var(--gray3); border-radius:6px; padding:12px 14px">
+        <div style="font-size:10px; font-weight:700; color:var(--green); text-transform:uppercase; letter-spacing:.8px; margin-bottom:6px">Positive</div>
+        <div style="font-size:11px; color:var(--gray6); line-height:1.5">EBITDA 24.2% in July — best month of 2026. YTD $128K ahead of budget. Payments: all channels positive, volume +$3.9M, blended rate +1.4 bps.</div>
+      </div>
+      <div style="background:var(--gray2); border:1px solid var(--gray3); border-radius:6px; padding:12px 14px">
+        <div style="font-size:10px; font-weight:700; color:var(--amber); text-transform:uppercase; letter-spacing:.8px; margin-bottom:6px">Key Lever</div>
+        <div style="font-size:11px; color:var(--gray6); line-height:1.5">PSA Web acceleration is required to close the $626K YTD revenue gap and improve LTV/CAC (currently 1.03x PSA). HC cuts and incentive reductions remain on plan.</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Rev.io | Financial Results | July 2026 | Prepared by Finance | Close date: August 2026</span><span class="conf">CONFIDENTIAL</span></div>
+  <div class="slide-nav-strip"><a href="#s10">&#8592; Prev</a><span class="sn-info">14 / 14<br>KPIs / Scorecard</span><a class="disabled">Next &#8594;</a></div>
+</div>
+
+</div><!-- end .deck -->
+
+<script>
+try { Chart.register(ChartDataLabels); } catch(e) {}
+
+// ── CHART: Revenue by Product Line — Billing & PSA stacked bars (Jul'26–Jun'27) ──
+(function(){
+  var ctx = document.getElementById('revByStreamChart');
+  if (!ctx) return;
+  var labels = ["Jul'26","Aug'26","Sep'26","Oct'26","Nov'26","Dec'26","Jan'27","Feb'27","Mar'27","Apr'27","May'27","Jun'27"];
+  var billing    = [2245, 2276, 2302, 2215, 2249, 2270, 2278, 2285, 2295, 2303, 2310, 2320];
+  var psa        = [695,  711,  705,  712,  723,  736,  740,  744,  752,  761,  773,  781];
+  var cyberProt  = [27,   31,   31,   31,   32,   34,   35,   35,   35,   36,   38,   41];
+  var commerceHb = [0,    0,    0,    0,    0,    0,    0,    0,    2,    5,    8,    10];
+  function colors(solid, faded) { return labels.map(function(_, i){ return i < 1 ? solid : faded; }); }
+  new Chart(ctx, {
+    data: { labels: labels, datasets: [
+      { type: 'bar', label: 'Billing & Odin', data: billing,
+        backgroundColor: colors('#22d3ee','rgba(34,211,238,0.45)'), borderRadius: 2, stack: 'rev', yAxisID: 'y',
+        datalabels: {
+          display: true, anchor: 'center', align: 'center',
+          color: '#0d1f3c', font: { size: 10, weight: 'bold' },
+          formatter: function(v){ return '$' + (v/1000).toFixed(2) + 'M'; }
+        }
+      },
+      { type: 'bar', label: 'PSA', data: psa,
+        backgroundColor: colors('#4ade80','rgba(74,222,128,0.45)'), borderRadius: 2, stack: 'rev', yAxisID: 'y',
+        datalabels: {
+          display: true, anchor: 'center', align: 'center',
+          color: '#0d1f3c', font: { size: 9, weight: 'bold' },
+          formatter: function(v){ return '$' + v + 'K'; }
+        }
+      },
+      { type: 'bar', label: ' ', data: new Array(12).fill(0), stack: 'rev', yAxisID: 'y',
+        backgroundColor: 'transparent', borderColor: 'transparent', borderWidth: 0,
+        datalabels: { display: false }
+      }
+    ]},
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: true, position: 'top', labels: { color: '#94a3b8', font: { size: 9 }, boxWidth: 12, padding: 10,
+          filter: function(item){ return item.text.trim() !== ''; } }},
+        tooltip: { callbacks: { label: function(c){
+          if (!c.dataset.label.trim()) return null;
+          return c.dataset.label + ': $' + c.raw.toLocaleString() + 'K';
+        }}},
+        datalabels: { display: false }
+      },
+      scales: {
+        x: { stacked: true, ticks: { color: '#94a3b8', font: { size: 9 } }, grid: { color: '#1e3a5f' } },
+        y: { stacked: true, min: 0, max: 3800, position: 'left',
+             ticks: { color: '#94a3b8', font: { size: 9 }, callback: function(v){ return '$' + (v/1000).toFixed(1) + 'M'; } },
+             grid: { color: '#1e3a5f' } }
+      }
+    }
+  });
+})();
+
+
+// ── CHART: CAC Ratio by Product ──
+(function(){
+  var ctx = document.getElementById('cacBarChart');
+  if (!ctx) return;
+  new Chart(ctx, {
+    type: 'line',
+    data: { labels: ["Dec'25","Jan'26","Feb'26","Mar'26","Apr'26","May'26","Jun'26","Jul'26"],
+      datasets: [
+        { label: 'Billing', data: [0.57, 0.60, 0.47, 0.49, 0.46, 0.46, 0.46, 0.43], borderColor: '#22d3ee', backgroundColor: 'transparent', pointBackgroundColor: '#22d3ee', borderWidth: 2, pointRadius: 3, tension: 0.3 },
+        { label: 'PSA', data: [0.24, 0.25, 0.25, 0.25, 0.24, 0.26, 0.26, 0.26], borderColor: '#4ade80', backgroundColor: 'transparent', pointBackgroundColor: '#4ade80', borderWidth: 2, pointRadius: 3, tension: 0.3 },
+        { label: 'Payments', data: [0.65, 0.63, 0.69, 0.71, 0.61, 0.65, 0.54, 0.51], borderColor: '#f97316', backgroundColor: 'transparent', pointBackgroundColor: '#f97316', borderWidth: 2, pointRadius: 3, tension: 0.3 }
+      ]},
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: true, labels: { color: '#94a3b8', font: { size: 9 }, boxWidth: 10 } }, tooltip: { callbacks: { label: function(c){ return c.dataset.label + ': ' + c.raw + 'x'; } } }, datalabels: { display: false } },
+      scales: { y: { ticks: { color: '#94a3b8', font: { size: 9 }, callback: function(v){ return v+'x'; } }, grid: { color: '#1e3a5f' }, min: 0, max: 1.2 }, x: { ticks: { color: '#94a3b8', font: { size: 9 } }, grid: { color: '#1e3a5f44' } } }
+    }
+  });
+})();
+
+// ── CHART: Payback Period ──
+(function(){
+  var ctx = document.getElementById('paybackChart');
+  if (!ctx) return;
+  new Chart(ctx, {
+    type: 'line',
+    data: { labels: ["Dec'25","Jan'26","Feb'26","Mar'26","Apr'26","May'26","Jun'26","Jul'26"],
+      datasets: [
+        { label: 'Billing', data: [21.0, 20.1, 25.6, 24.6, 25.8, 26.0, 25.9, 28.0], borderColor: '#22d3ee', backgroundColor: 'transparent', pointBackgroundColor: '#22d3ee', borderWidth: 2, pointRadius: 3, tension: 0.3 },
+        { label: 'PSA', data: [49.8, 47.2, 47.6, 48.5, 49.2, 45.5, 45.5, 45.6], borderColor: '#4ade80', backgroundColor: 'transparent', pointBackgroundColor: '#4ade80', borderWidth: 2, pointRadius: 3, tension: 0.3 },
+        { label: 'Payments', data: [18.5, 19.1, 17.4, 17.0, 19.8, 18.4, 22.4, 23.5], borderColor: '#f97316', backgroundColor: 'transparent', pointBackgroundColor: '#f97316', borderWidth: 2, pointRadius: 3, tension: 0.3 }
+      ]},
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: true, labels: { color: '#94a3b8', font: { size: 9 }, boxWidth: 10 } }, tooltip: { callbacks: { label: function(c){ return c.raw + ' months'; } } }, datalabels: { display: false } },
+      scales: { y: { ticks: { color: '#94a3b8', font: { size: 9 }, callback: function(v){ return v+' mo'; } }, grid: { color: '#1e3a5f' }, min: 0, max: 60 }, x: { ticks: { color: '#94a3b8', font: { size: 9 } }, grid: { color: '#1e3a5f44' } } }
+    }
+  });
+})();
+
+// ── CHART: Payments Monthly Trend ──
+(function(){
+  var ctx = document.getElementById('paymentsChart');
+  if (!ctx) return;
+  var months = ['Jan','Feb','Mar*','Apr','May','Jun','Jul'];
+  var net = [159, 170, 210, 170, 170, 175, 195];
+  new Chart(ctx, {
+    type: 'bar',
+    data: { labels: months, datasets: [{
+      label: 'Net Payments ($K)', data: net,
+      backgroundColor: net.map(function(v,i){ return i === 6 ? '#22d3ee' : 'rgba(34,211,238,0.55)'; }),
+      borderRadius: 4
+    }]},
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(c){ return '$' + c.raw + 'K'; } } }, datalabels: { color: '#e2e8f0', font: { size: 9, weight: 'bold' }, anchor: 'end', align: 'end', formatter: function(v){ return '$' + v + 'K'; } } },
+      scales: { y: { ticks: { color: '#94a3b8', font: { size: 9 }, callback: function(v){ return '$' + v + 'K'; } }, grid: { color: '#1e3a5f' }, min: 100, max: 250 }, x: { ticks: { color: '#94a3b8', font: { size: 9 } }, grid: { color: '#1e3a5f' } } }
+    }
+  });
+})();
+
+// ── CHART: Revenue by Channel (Payments) ──
+(function(){
+  var ctx = document.getElementById('revShareChart');
+  if (!ctx) return;
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul'];
+  new Chart(ctx, {
+    type: 'bar',
+    data: { labels: months, datasets: [
+      { label: 'Paya CC ($K)', data: [98, 106, 115, 112, 110, 116, 131], backgroundColor: '#22d3ee99', borderColor: '#22d3ee', borderWidth: 1.5, borderRadius: 2 },
+      { label: 'Paya ACH ($K)', data: [13, 14, 14, 15, 15, 15, 16], backgroundColor: '#6366f199', borderColor: '#6366f1', borderWidth: 1.5, borderRadius: 2 },
+      { label: 'TRX CC ($K)', data: [26, 27, 28, 27, 28, 28, 31], backgroundColor: '#f9731699', borderColor: '#f97316', borderWidth: 1.5, borderRadius: 2 },
+      { label: 'TRX ACH ($K)', data: [15, 16, 17, 17, 18, 18, 19], backgroundColor: '#fbbf2499', borderColor: '#fbbf24', borderWidth: 1.5, borderRadius: 2 }
+    ]},
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: true, labels: { color: '#94a3b8', font: { size: 9 }, boxWidth: 8 } }, datalabels: { display: function(ctx){ return ctx.datasetIndex === ctx.chart.data.datasets.length - 1; }, formatter: function(value, ctx){ var sum = ctx.chart.data.datasets.reduce(function(acc,ds){ return acc + (ds.data[ctx.dataIndex] || 0); }, 0); return '$' + sum + 'K'; }, color: '#e2e8f0', font: { size: 8, weight: 'bold' }, anchor: 'end', align: 'end' } },
+      scales: { x: { stacked: true, ticks: { color: '#94a3b8', font: { size: 9 } }, grid: { color: '#1e3a5f' } }, y: { stacked: true, ticks: { color: '#94a3b8', font: { size: 9 }, callback: function(v){ return '$'+v+'K'; } }, grid: { color: '#1e3a5f' } } }
+    }
+  });
+})();
+
+// ── CHART: Revenue Revision (Previous vs Updated) ──
+(function(){
+  var ctx = document.getElementById('revRevisionChart');
+  if (!ctx) return;
+  var labels = ["Q3'26","Q4'26","Q1'27","Q2'27","Q3'27","Q4'27"];
+  var prev = [9681, 9660, 9807, 10244, 10904, 11592];
+  var upd  = [9657, 9655, 9782, 9967,  10347, 10868];
+  new Chart(ctx, {
+    type: 'bar',
+    data: { labels: labels, datasets: [
+      { label: 'Previous ($K)', data: prev, backgroundColor: 'rgba(148,163,184,0.45)', borderRadius: 3 },
+      { label: 'Updated ($K)', data: upd,  backgroundColor: '#22d3ee', borderRadius: 3 }
+    ]},
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: true, labels: { color: '#94a3b8', font: { size: 8 }, boxWidth: 8 } },
+        datalabels: { display: true,
+          color: function(c){ return c.datasetIndex === 1 ? '#22d3ee' : '#94a3b8'; },
+          font: { size: 7, weight: 'bold' },
+          anchor: 'end', align: 'end',
+          formatter: function(v){ return '$' + (v/1000).toFixed(2) + 'M'; },
+          offset: 0 },
+        tooltip: { callbacks: { label: function(c){ return c.dataset.label + ': $' + c.raw.toLocaleString() + 'K'; } } } },
+      scales: { y: { ticks: { color: '#94a3b8', font: { size: 8 }, callback: function(v){ return '$' + v + 'K'; } }, grid: { color: '#1e3a5f' }, min: 8500, max: 13500 },
+        x: { ticks: { color: '#94a3b8', font: { size: 8 } }, grid: { color: '#1e3a5f44' } } }
+    }
+  });
+})();
+
+// ── CHART: EBITDA Revision (Previous vs Updated) ──
+(function(){
+  var ctx = document.getElementById('ebitdaRevisionChart');
+  if (!ctx) return;
+  var labels = ["Q3'26","Q4'26","Q1'27","Q2'27","Q3'27","Q4'27"];
+  var prev = [1947, 1928, 1869, 2103, 2674, 3304];
+  var upd  = [2156, 2207, 2167, 2229, 2353, 2943];
+  new Chart(ctx, {
+    type: 'bar',
+    data: { labels: labels, datasets: [
+      { label: 'Previous ($K)', data: prev, backgroundColor: 'rgba(148,163,184,0.45)', borderRadius: 3 },
+      { label: 'Updated ($K)', data: upd,  backgroundColor: '#4ade80', borderRadius: 3 }
+    ]},
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: true, labels: { color: '#94a3b8', font: { size: 8 }, boxWidth: 8 } },
+        datalabels: { display: true, color: '#0d1f3c', font: { size: 6, weight: 'bold' }, anchor: 'center', align: 'center', formatter: function(v){ return '$' + v + 'K'; } },
+        tooltip: { callbacks: { label: function(c){ return c.dataset.label + ': $' + c.raw.toLocaleString() + 'K'; } } } },
+      scales: { y: { ticks: { color: '#94a3b8', font: { size: 8 }, callback: function(v){ return '$' + v + 'K'; } }, grid: { color: '#1e3a5f' }, min: 0, max: 3800 },
+        x: { ticks: { color: '#94a3b8', font: { size: 8 } }, grid: { color: '#1e3a5f44' } } }
+    }
+  });
+})();
+
+// ── CHART: EBITDA Bridge (revision delta) ──
+(function(){
+  var ctx = document.getElementById('ebitdaBridgeChart');
+  if (!ctx) return;
+  var labels = ["Q3'26","Q4'26","Q1'27","Q2'27","Q3'27","Q4'27"];
+  var deltas = [209, 279, 298, 126, -321, -361];
+  new Chart(ctx, {
+    type: 'bar',
+    data: { labels: labels, datasets: [{
+      label: 'EBITDA Δ ($K)',
+      data: deltas,
+      backgroundColor: deltas.map(function(v){ return v >= 0 ? 'rgba(74,222,128,0.75)' : 'rgba(248,113,113,0.75)'; }),
+      borderColor: deltas.map(function(v){ return v >= 0 ? '#4ade80' : '#f87171'; }),
+      borderWidth: 1, borderRadius: 3
+    }]},
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false },
+        datalabels: { display: true, color: '#e2e8f0', font: { size: 8, weight: 'bold' },
+          anchor: function(c){ return c.dataset.data[c.dataIndex] >= 0 ? 'end' : 'start'; },
+          align:  function(c){ return c.dataset.data[c.dataIndex] >= 0 ? 'end' : 'start'; },
+          formatter: function(v){ return (v >= 0 ? '+$' : '-$') + Math.abs(v) + 'K'; } },
+        tooltip: { callbacks: { label: function(c){ return 'Δ EBITDA: ' + (c.raw >= 0 ? '+' : '') + '$' + c.raw + 'K'; } } } },
+      scales: { y: { ticks: { color: '#94a3b8', font: { size: 8 }, callback: function(v){ return (v >= 0 ? '+' : '') + '$' + v + 'K'; } }, grid: { color: '#1e3a5f' }, min: -700, max: 450 },
+        x: { ticks: { color: '#94a3b8', font: { size: 8 } }, grid: { color: '#1e3a5f44' } } }
+    }
+  });
+})();
+</script>
+</body>
+</html>
